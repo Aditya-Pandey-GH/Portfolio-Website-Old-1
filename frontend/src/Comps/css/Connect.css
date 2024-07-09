@@ -1,0 +1,128 @@
+.connectBox {
+	background-color: #313a4b;
+	border-radius: 1rem;
+	display: flex;
+	flex-direction: row;
+	margin-top: 1rem;
+	/* padding: 0 0 0 1rem; */
+}
+
+.connectBoxImg svg {
+	width: 2.5rem;
+	margin: 1rem;
+	display: flex !important;
+}
+
+.connectBoxIn {
+	width: 100%;
+	background-color: transparent;
+	padding: 1rem 0;
+	border-radius: 1rem;
+	/* margin: 0 1rem; */
+	margin-right: 1rem;
+	/* margin-top: 0.5rem;
+	margin-bottom: 0.5rem; */
+	border: none;
+	font-size: large;
+	font-family: Iceberg, serif;
+	resize: none;
+}
+
+.connectBoxIn:focus {
+	outline: none;
+}
+
+.connectBoxTextArea {
+	resize: vertical;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	min-height: 10rem;
+}
+
+.sendMailButton {
+	font-family: Langar, serif;
+	font-size: larger;
+	cursor: pointer;
+	background-color: #ffc700;
+	color: #313a4b;
+	margin-top: 1rem;
+	padding: 1rem 3rem;
+	border: none;
+	border-radius: 1rem;
+	transition: ease-in-out 0.25s;
+}
+
+.sendMailButton:hover {
+	/* color: #ffc700;
+	background-color: #212936; */
+	opacity: 75%;
+	/* box-shadow: 0 0 10px white; */
+}
+
+
+
+
+.connectSocialBox {
+	background-color: #313a4b;
+	border-radius: 1rem;
+	display: block;
+	margin-top: 1rem;
+}
+
+.connectSocialBoxContent {
+	height: fit-content;
+	border-radius: 1rem;
+	margin: 1rem 1rem 0 1rem;
+	padding: 1rem;
+	text-align: center;
+	display: inline-block;
+
+	& img {
+		width: 16rem;
+		margin-right: 0;
+		transition: ease-in-out 0.15s;
+	}
+
+	& img:hover {
+		opacity: 75%;
+	}
+}
+
+
+
+
+
+@media screen and (max-width: 425px) {
+
+	.connectBoxImg svg {
+		width: 2rem;
+	}
+
+	.connectBoxTextArea {
+		margin-top: 0.35rem;
+		margin-bottom: 0.35rem;
+		/* min-height: 10rem; */
+	}
+
+	.sendMailButton {
+		font-size: medium;
+		padding: 0.75rem 2.5rem;
+		border: none;
+		border-radius: 1rem;
+		transition: ease-out 0.25s;
+	}
+
+	.connectSocialBoxContent {
+		margin: 0.5rem 0.5rem 0 0.5rem;
+		padding-bottom: 0.3rem;
+
+		& img {
+			width: 5rem;
+			margin-right: 0;
+		}
+
+		& img:hover {
+			opacity: 100%;
+		}
+	}
+}
