@@ -7,15 +7,8 @@ require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 16091;
-console.log("LOL LMAO OUTSIDE");
 
-app.use(cors(
-	{
-		origin: ["http://192.168.1.3:1609/"],
-		methods: ["POST", "GET"],
-		credentials: true
-	}
-));
+app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB Backend
@@ -101,7 +94,7 @@ app.post('/api/send-email', (req, res) => {
 // --------------------------------------------------------------------------------------------------------------------------------------------
 
 app.get('/', (req, res) => {
-	res.send("LOL LMAO INSIDE");
+	res.send("LOL LMAO");
 });
 
 app.listen(port, () => {
