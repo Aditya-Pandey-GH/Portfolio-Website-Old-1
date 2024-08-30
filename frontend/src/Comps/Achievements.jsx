@@ -9,22 +9,24 @@ import IntroComponent from "./IntroComponent";
 const Achievements = () => {
 	window.localStorage.setItem("page", 2);
 
+	const url = "https://pandey-ji-portfolio-bkapi.onrender.com";
+
 	const [Welfares, setWelfares] = useState({});
 	const [Certs, setCerts] = useState({});
 	const [Achs, setAchs] = useState({});
 
 	const fetchWelfare = async () => {
-		let welfareData = await axios.get("/api/welfares");
+		let welfareData = await axios.get(url + "/api/welfares");
 		setWelfares(welfareData.data);
 	}; // Fetch the details of the social welfare works done by the user (here, Aditya Pandey)
 
 	const fetchCert = async () => {
-		let certData = await axios.get("/api/certs");
+		let certData = await axios.get(url + "/api/certs");
 		setCerts(certData.data);
 	}; // Fetch the details of the certificates recieved by the user (here, Aditya Pandey)
 
 	const fetchAch = async () => {
-		let achData = await axios.get("/api/achs");
+		let achData = await axios.get(url + "/api/achs");
 		setAchs(achData.data);
 	}; // Fetch the details of the achievements of the user (here, Aditya Pandey)
 

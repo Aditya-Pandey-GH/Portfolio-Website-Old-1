@@ -10,16 +10,18 @@ import Site from "./svgs/site.svg";
 const Projects = () => {
 	window.localStorage.setItem("page", 3);
 
+	const url = "https://pandey-ji-portfolio-bkapi.onrender.com";
+
 	const [Personals, setPersonals] = useState({});
 	const [Profs, setProfs] = useState({});
 
 	const fetchPersonal = async () => {
-		let personalData = await axios.get("/api/personals");
+		let personalData = await axios.get(url + "/api/personals");
 		setPersonals(personalData.data);
 	}; // Fetch the details of the personal projects made by the user (here, Aditya Pandey)
 
 	const fetchProf = async () => {
-		let profData = await axios.get("/api/profs");
+		let profData = await axios.get(url + "/api/profs");
 		setProfs(profData.data);
 	}; // Fetch the details of the professional projects made by the user (here, Aditya Pandey)
 

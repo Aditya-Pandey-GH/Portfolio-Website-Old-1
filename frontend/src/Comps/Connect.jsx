@@ -10,10 +10,12 @@ import './css/Connect.css';
 const Connect = () => {
 	window.localStorage.setItem("page", 4);
 
+	const url = "https://pandey-ji-portfolio-bkapi.onrender.com";
+
 	const [Socials, setSocials] = useState({});
 
 	const fetchSocial = async () => {
-		let socialData = await axios.get("/api/socials");
+		let socialData = await axios.get(url + "/api/socials");
 		setSocials(socialData.data);
 	}; // Fetch the details of the social media accounts of the user (here, Aditya Pandey)
 

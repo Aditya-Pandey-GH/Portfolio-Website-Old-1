@@ -8,16 +8,18 @@ import IntroComponent from "./IntroComponent";
 const Home = () => {
 	window.localStorage.setItem("page", 0);
 
+	const url = "https://pandey-ji-portfolio-bkapi.onrender.com";
+
 	const [Acads, setAcads] = useState({});
 	const [XP, setXP] = useState({});
 
 	const fetchAcad = async () => {
-		let acadData = await axios.get("/api/acads");
+		let acadData = await axios.get(url + "/api/acads");
 		setAcads(acadData.data);
 	}; // Fetch the academic details of the user (here, Aditya Pandey)
 
 	const fetchXP = async () => {
-		let XPData = await axios.get("/api/xps");
+		let XPData = await axios.get(url + "/api/xps");
 		setXP(XPData.data);
 	}; // Fetch the experience details of the user (here, Aditya Pandey)
 

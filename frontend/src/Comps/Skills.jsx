@@ -10,22 +10,24 @@ import './css/Skills.css';
 const Skills = () => {
 	window.localStorage.setItem("page", 1);
 
+	const url = "https://pandey-ji-portfolio-bkapi.onrender.com";
+
 	const [Techs, setTechs] = useState({});
 	const [Langs, setLangs] = useState({});
 	const [DBs, setDBs] = useState({});
 
 	const fetchTech = async () => {
-		let techData = await axios.get("/api/techs");
+		let techData = await axios.get(url + "/api/techs");
 		setTechs(techData.data);
 	}; // Fetch the details of the tech stacks known to the user (here, Aditya Pandey)
 
 	const fetchLang = async () => {
-		let langData = await axios.get("/api/langs");
+		let langData = await axios.get(url + "/api/langs");
 		setLangs(langData.data);
 	}; // Fetch the details of the programming languages known to the user (here, Aditya Pandey)
 
 	const fetchDB = async () => {
-		let dbData = await axios.get("/api/dbs");
+		let dbData = await axios.get(url + "/api/dbs");
 		setDBs(dbData.data);
 	}; // Fetch the details of the databases known to the user (here, Aditya Pandey)
 

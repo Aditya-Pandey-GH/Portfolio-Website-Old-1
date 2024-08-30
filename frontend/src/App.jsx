@@ -20,11 +20,13 @@ import './App.css';
 
 const App = () => {
 
+	const url = "https://pandey-ji-portfolio-bkapi.onrender.com";
+
 	const [loading, setLoading] = useState(true);
 	const [Data, setData] = useState("");
 
 	const fetchUser = async () => {
-		let userData = await axios.get("/api/users");
+		let userData = await axios.get(url + "/api/users");
 		setData(userData.data);
 	}; // Fetch the details of the user (here, Aditya Pandey)
 
