@@ -1,5 +1,6 @@
 {
   "name": "adi",
+  "proxy": "https://pandey-ji-portfolio-bkapi.onrender.com",
   "private": true,
   "version": "0.0.0",
   "type": "module",
