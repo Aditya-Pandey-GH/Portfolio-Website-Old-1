@@ -1,11 +1,32 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
-import Data from "../Data";
 import Navbar from "./Navbar";
 import IntroComponent from "./IntroComponent";
+import Site from "./svgs/site.svg";
 
 const Projects = () => {
 	window.localStorage.setItem("page", 3);
+
+	const [Personals, setPersonals] = useState({});
+	const [Profs, setProfs] = useState({});
+
+	const fetchPersonal = async () => {
+		let personalData = await axios.get("/api/personals");
+		setPersonals(personalData.data);
+	}; // Fetch the details of the personal projects made by the user (here, Aditya Pandey)
+
+	const fetchProf = async () => {
+		let profData = await axios.get("/api/profs");
+		setProfs(profData.data);
+	}; // Fetch the details of the professional projects made by the user (here, Aditya Pandey)
+
+	useEffect(() => {
+		fetchPersonal();
+		fetchProf();
+	}, []);
 
 	return (
 		<>
@@ -22,10 +43,10 @@ const Projects = () => {
 							<IntroComponent />
 
 							<div className="homeComponent">
-								<div className="homeComponentHeading">PERSONAL PROJECTS</div>
+								<div className="homeComponentHeading">PROFESSIONAL PROJECTS</div>
 								<div className="homeXP">
 									{
-										Data.projectsPage.personal.map((elem) => {
+										Object.values(Profs).map((elem) => {
 											return (
 												<div key={elem.id} className='homeXPContent'>
 													<img
@@ -35,16 +56,28 @@ const Projects = () => {
 													<div>
 														<div className='homeAcadHeading'>{elem.name}</div>
 														<div className='homeAcadSubContent' style={{ marginTop: "1rem" }}>{elem.desc}</div>
+														<div className='homeAcadSubContent' style={{ marginTop: "1rem" }}>
+															Languages: <ul style={{ marginLeft: "1.5rem" }}>
+																{
+																	Object.values(elem.lang).map((lang) => {
+																		return (
+																			<li key={lang}>{lang}</li>
+																		)
+																	})
+																}
+															</ul>
+														</div>
 														{
-															elem.lang ?
-																<div className='homeAcadSubContent' style={{ marginTop: "1rem" }}>Languages: {elem.lang}</div> :
+															elem.link !== "" ?
+																<div className='homeAcadSubContent' style={{ marginTop: "1rem" }}>
+																	<img
+																		src={Site}
+																		alt=""
+																		style={{ width: "1.5rem" }} />
+																	<Link to={elem.link} target="_blank" className="websites" > {elem.link}</Link>
+																</div> :
 																<></>
 														}
-														{/* {
-															elem.tech ?
-																<div className='homeAcadSubContent'>Tech Stack: {elem.tech}</div> :
-																<></>
-														} */}
 													</div>
 												</div>
 											)
@@ -54,14 +87,12 @@ const Projects = () => {
 							</div>
 						</div>
 
-
-
 						<div className="col-2">
 							<div className="homeComponent">
-								<div className="homeComponentHeading">PROFESSIONAL PROJECTS</div>
+								<div className="homeComponentHeading">PERSONAL PROJECTS</div>
 								<div className="homeXP">
 									{
-										Data.projectsPage.professional.map((elem) => {
+										Object.values(Personals).map((elem) => {
 											return (
 												<div key={elem.id} className='homeXPContent'>
 													<img
@@ -70,10 +101,27 @@ const Projects = () => {
 														className="homeXPimg" />
 													<div>
 														<div className='homeAcadHeading'>{elem.name}</div>
-														<div className='homeAcadSubContent'>{elem.desc}</div>
+														<div className='homeAcadSubContent' style={{ marginTop: "1rem" }}>{elem.desc}</div>
+														<div className='homeAcadSubContent' style={{ marginTop: "1rem" }}>
+															Languages: <ul style={{ marginLeft: "1.5rem" }}>
+																{
+																	Object.values(elem.lang).map((lang) => {
+																		return (
+																			<li key={lang}>{lang}</li>
+																		)
+																	})
+																}
+															</ul>
+														</div>
 														{
-															elem.lang ?
-																<div className='homeAcadSubContent'>Language: {elem.lang}</div> :
+															elem.link !== "" ?
+																<div className='homeAcadSubContent' style={{ marginTop: "1rem" }}>
+																	<img
+																		src={Site}
+																		alt=""
+																		style={{ width: "1.5rem" }} />
+																	<Link to={elem.link} target="_blank" className="websites" > {elem.link}</Link>
+																</div> :
 																<></>
 														}
 													</div>

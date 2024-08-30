@@ -1,0 +1,50 @@
+@media screen and (min-width: 1025px) {
+
+	body {
+		overflow: hidden;
+	}
+
+	.col-1 {
+		height: 96vh;
+		overflow-y: auto;
+
+		/* Hides the scrollbar while keeping scrolling functionality */
+		/* For WebKit browsers (Chrome, Safari) */
+		&::-webkit-scrollbar {
+			width: 0;
+			height: 0;
+		}
+
+		/* Hides the scrollbar */
+
+		/* For Firefox */
+		scrollbar-width: none;
+		/* Hides the scrollbar */
+
+		/* For Internet Explorer 10+ */
+		-ms-overflow-style: none;
+		/* Hides the scrollbar */
+	}
+
+	.col-2 {
+		height: 96vh;
+		overflow-y: auto;
+
+		/* Hides the scrollbar while keeping scrolling functionality */
+		/* For WebKit browsers (Chrome, Safari) */
+		&::-webkit-scrollbar {
+			width: 0;
+			height: 0;
+		}
+
+		/* Hides the scrollbar */
+
+		/* For Firefox */
+		scrollbar-width: none;
+		/* Hides the scrollbar */
+
+		/* For Internet Explorer 10+ */
+		-ms-overflow-style: none;
+		/* Hides the scrollbar */
+	}
+}

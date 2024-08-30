@@ -1,70 +1,99 @@
 import { Link } from 'react-router-dom';
-import Data from '../Data';
-
 import './css/Navbar.css';
 
 const Navbar = (pageName) => {
 
+	const Pages = [
+
+		// {
+		// ["Home", "https://i.postimg.cc/8PvnzhHj/Adi-Pro-Folio-Logo.png", "homeNav", "/"],
+		// ["Skills", "https://i.postimg.cc/x10yVHFr/skills.png", "skillsNav", "/skills"],
+		// ["Success", "https://cdn4.iconfinder.com/data/icons/educations-5/512/1226.png", "achieveNav", "/achievements"],
+		// ["Projects", "https://i.postimg.cc/SQMG6mzP/projects.png", "projNav", "/projects"],
+		// ["Gallery", "https://cdn3d.iconscout.com/3d/premium/thumb/gallery-5560962-4644628.png", "galleryNav", "/gallery"],
+		// ["Connect", "https://i.postimg.cc/WpBXCdvj/connect.png", "connectNav", "/connect"],
+		// },
+
+		{
+			"name": "Home",
+			"logo": "https://i.postimg.cc/QxvTKf0Y/home.png",
+			"pageName": "homeNav",
+			"path": "/"
+		},
+		{
+			"name": "Skills",
+			"logo": "https://i.postimg.cc/hjCJDsXr/skills.png",
+			"pageName": "skillsNav",
+			"path": "/skills"
+		},
+		{
+			"name": "Achievements",
+			"logo": "https://i.postimg.cc/nLWzNzgR/success.png",
+			"pageName": "achieveNav",
+			"path": "/achievements"
+		},
+		{
+			"name": "Projects",
+			"logo": "https://i.postimg.cc/136NGDdm/projects.png",
+			"pageName": "projNav",
+			"path": "/projects"
+		},
+
+		// {
+		// 	"name": "Gallery",
+		// 	"logo": "https://i.postimg.cc/DzPJDnFR/gallery.png",
+		// 	"pageName": "galleryNav",
+		// 	"path": "/gallery"
+		// },
+
+		{
+			"name": "Connect",
+			"logo": "https://i.postimg.cc/s2rGwvFp/connect.png",
+			"pageName": "connectNav",
+			"path": "/connect"
+		},
+	]
+
 	return (
 		<>
 			<div className='navContainer'>
-				<ul className='navUL'>
-					<div className='navCurPage'>
+				<div className='navUL'>
+					<ul className='navCurPage navUL'>
 						<li>
 							<img
-								src={Data.pages[window.localStorage.getItem("page")].logo}
+								src={Pages[window.localStorage.getItem("page")].logo}
 								alt='PFP' />
 						</li>
-						<li className='nameNav'>{Data.pages[window.localStorage.getItem("page")].name}</li>
-					</div>
-					<div className='navItems'>
+						<li className='nameNav'>{Pages[window.localStorage.getItem("page")].name}</li>
+					</ul>
+					<ul className='navItems'>
 						{
-							Data.pages.map((elem) => {
+							Pages.map((elem) => {
 								return (
-									<div key={elem.pageName}>
+									<li key={elem.pageName}>
 										<Link to={elem.path}>
-											<li className={`nameNavItems ${elem.pageName === pageName.navElem ? "navActive" : ""} navActivePC PC`} id={elem.pageName}>
+											<div className={`nameNavItems ${elem.pageName === pageName.navElem ? "navActive" : ""} navActivePC PC`} id={elem.pageName}>
 												<img
 													src={elem.logo}
 													alt=''
 													style={{ width: "2rem" }} />
 												<span style={{ position: 'relative', fontSize: "1rem", fontWeight: 100, bottom: '0.5rem', paddingLeft: '1rem' }}>{elem.name}</span>
-											</li>
+											</div>
 
 
-											<li className={`nameNavItems ${elem.pageName === pageName.navElem ? "navActive" : ""} Mobile`} id={elem.pageName}>
+											<div className={`nameNavItems ${elem.pageName === pageName.navElem ? "navActive" : ""} Mobile`} id={elem.pageName}>
 												<img
 													src={elem.logo}
 													alt=''
 													style={{ width: "2rem" }} />
-											</li>
-
-
-
-
-
-
-
-											{/* {elem.pageName === pageName.navElem ?
-												<li className='nameNavItems navActive Mobile' id={elem.pageName}>
-													<img
-														src={elem.logo}
-														alt=''
-														style={{ width: "2rem" }} />
-												</li> : <li className='nameNavItems Mobile' id={elem.pageName}>
-													<img
-														src={elem.logo}
-														alt=''
-														style={{ width: "2rem" }} />
-												</li>
-											} */}
+											</div>
 										</Link>
-									</div>
+									</li>
 								)
 							})
 						}
-					</div>
-				</ul >
+					</ul>
+				</div >
 			</div >
 		</>
 	);

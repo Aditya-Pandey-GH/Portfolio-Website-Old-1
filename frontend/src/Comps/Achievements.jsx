@@ -1,12 +1,38 @@
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-import Data from "../Data";
 import Navbar from "./Navbar";
 import IntroComponent from "./IntroComponent";
 
 const Achievements = () => {
 	window.localStorage.setItem("page", 2);
+
+	const [Welfares, setWelfares] = useState({});
+	const [Certs, setCerts] = useState({});
+	const [Achs, setAchs] = useState({});
+
+	const fetchWelfare = async () => {
+		let welfareData = await axios.get("/api/welfares");
+		setWelfares(welfareData.data);
+	}; // Fetch the details of the social welfare works done by the user (here, Aditya Pandey)
+
+	const fetchCert = async () => {
+		let certData = await axios.get("/api/certs");
+		setCerts(certData.data);
+	}; // Fetch the details of the certificates recieved by the user (here, Aditya Pandey)
+
+	const fetchAch = async () => {
+		let achData = await axios.get("/api/achs");
+		setAchs(achData.data);
+	}; // Fetch the details of the achievements of the user (here, Aditya Pandey)
+
+	useEffect(() => {
+		fetchWelfare();
+		fetchCert();
+		fetchAch();
+	}, []);
 
 	return (
 		<>
@@ -25,7 +51,7 @@ const Achievements = () => {
 							<div className="homeComponent">
 								<div className="homeComponentHeading">SOCIAL WELFARE</div>
 								{
-									Data.successPage.welfare.map((elem) => {
+									Object.values(Welfares).map((elem) => {
 										return (
 											<div key={elem.id} className="homeWelfareContent">
 												<div className='timeline'>
@@ -33,7 +59,10 @@ const Achievements = () => {
 														<circle cx="16" cy="16" r="10" stroke="#646464" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
 													</svg>
 												</div>
-												<div className='homeWelfareSubContent'>{elem.title}</div>
+												<div className='homeWelfareSubContent'>
+													{elem.title}<br />
+													<span style={{ float: "right" }}>~ {elem.year}</span>
+												</div>
 											</div>
 										)
 									})
@@ -44,7 +73,7 @@ const Achievements = () => {
 								<div className="homeComponentHeading">CERTIFICATES</div>
 								<div className="scrollableContent">
 									{
-										Data.successPage.certifications.map((elem) => {
+										Object.values(Certs).map((elem) => {
 											return (
 												<div key={elem.id} className="homeWelfareContent" style={{ padding: '0 0.5rem 1rem 0.5rem' }}>
 													<Link to={elem.preview} target="_blank">
@@ -68,7 +97,7 @@ const Achievements = () => {
 								<div className="homeComponentHeading">ACHIEVEMENTS</div>
 								<div className="homeXP">
 									{
-										Data.successPage.achievements.map((elem) => {
+										Object.values(Achs).map((elem) => {
 											return (
 												<div key={elem.id} className='homeXPContent'>
 													<img

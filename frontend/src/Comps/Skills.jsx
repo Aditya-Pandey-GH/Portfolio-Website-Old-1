@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import axios from "axios";
 
-import Data from "../Data";
 import Navbar from "./Navbar";
 import IntroComponent from "./IntroComponent";
 
@@ -8,6 +9,41 @@ import './css/Skills.css';
 
 const Skills = () => {
 	window.localStorage.setItem("page", 1);
+
+	const [Techs, setTechs] = useState({});
+	const [Langs, setLangs] = useState({});
+	const [DBs, setDBs] = useState({});
+
+	const fetchTech = async () => {
+		let techData = await axios.get("/api/techs");
+		setTechs(techData.data);
+	}; // Fetch the details of the tech stacks known to the user (here, Aditya Pandey)
+
+	const fetchLang = async () => {
+		let langData = await axios.get("/api/langs");
+		setLangs(langData.data);
+	}; // Fetch the details of the programming languages known to the user (here, Aditya Pandey)
+
+	const fetchDB = async () => {
+		let dbData = await axios.get("/api/dbs");
+		setDBs(dbData.data);
+	}; // Fetch the details of the databases known to the user (here, Aditya Pandey)
+
+	useEffect(() => {
+		fetchTech();
+		fetchLang();
+		fetchDB();
+	}, []);
+
+	const Color = (skill) => {
+		if (skill >= 80) {
+			return "#279e1c";
+		} else if (skill >= 50) {
+			return "#bf7432";
+		} else {
+			return "#bf3232";
+		}
+	}
 
 	return (
 		<>
@@ -27,7 +63,7 @@ const Skills = () => {
 								<div className="homeComponentHeading">TECH STACKS</div>
 								<div className="homeXP">
 									{
-										Data.skillsPage.techs.map((elem) => {
+										Object.values(Techs).map((elem) => {
 											return (
 												<div key={elem.id} className='homeXPContent'>
 													<img
@@ -56,14 +92,12 @@ const Skills = () => {
 							</div>
 						</div>
 
-
-
 						<div className="col-2">
 							<div className="homeComponent">
 								<div className="homeComponentHeading">LANGUAGES</div>
 								<div className="homeXP">
 									{
-										Data.skillsPage.langs.map((elem) => {
+										Object.values(Langs).map((elem) => {
 											return (
 												<div key={elem.id} className='homeXPContent'>
 													<img
@@ -80,11 +114,11 @@ const Skills = () => {
 														<div className='homeAcadSubContent skillProgressBar'>
 															<motion.div
 																initial={{ width: 0 }}
-																animate={{ width: elem.skill }}
+																animate={{ width: elem.skill + "%" }}
 																transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
 																className="skillProgress"
-																style={{ backgroundColor: elem.color }}>
-																{elem.skill}
+																style={{ backgroundColor: Color(elem.skill) }}>
+																{elem.skill + "%"}
 															</motion.div>
 														</div>
 													</div>
@@ -98,7 +132,7 @@ const Skills = () => {
 								<div className="homeComponentHeading">DATABASES</div>
 								<div className="homeXP">
 									{
-										Data.skillsPage.dbs.map((elem) => {
+										Object.values(DBs).map((elem) => {
 											return (
 												<div key={elem.id} className='homeXPContent'>
 													<img
@@ -115,11 +149,11 @@ const Skills = () => {
 														<div className='homeAcadSubContent skillProgressBar'>
 															<motion.div
 																initial={{ width: 0 }}
-																animate={{ width: elem.skill }}
+																animate={{ width: elem.skill + "%" }}
 																transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
 																className="skillProgress"
-																style={{ backgroundColor: elem.color }}>
-																{elem.skill}
+																style={{ backgroundColor: Color(elem.skill) }}>
+																{elem.skill + "%"}
 															</motion.div>
 														</div>
 													</div>

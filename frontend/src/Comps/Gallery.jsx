@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
 
-// import Data from "../Data";
 import Navbar from "./Navbar";
 
 import './css/Gallery.css';

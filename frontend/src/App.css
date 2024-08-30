@@ -170,6 +170,15 @@
 	font-family: Iceberg, serif;
 }
 
+.websites {
+	color: yellow;
+	transition: ease-in-out 0.25s;
+}
+
+.websites:hover {
+	color: orange;
+}
+
 .homeXP {
 	display: flex;
 	flex-direction: column;

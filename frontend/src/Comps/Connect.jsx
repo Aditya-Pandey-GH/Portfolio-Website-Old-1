@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
-import Data from "../Data";
 import Navbar from "./Navbar";
 import IntroComponent from "./IntroComponent";
 import './css/Connect.css';
 
 const Connect = () => {
 	window.localStorage.setItem("page", 4);
+
+	const [Socials, setSocials] = useState({});
+
+	const fetchSocial = async () => {
+		let socialData = await axios.get("/api/socials");
+		setSocials(socialData.data);
+	}; // Fetch the details of the social media accounts of the user (here, Aditya Pandey)
+
+	useEffect(() => {
+		fetchSocial();
+	}, []);
 
 	const [formData, setFormData] = useState({
 		email: '',
@@ -123,15 +133,12 @@ const Connect = () => {
 							</div>
 						</div>
 
-
-
 						<div className="col-2">
-
 							<div className="homeComponent">
 								<div className="homeComponentHeading">SOCIAL MEDIA</div>
 								<div className="connectSocialBox">
 									{
-										Data.connectPage.socialMedia.map((elem) => {
+										Object.values(Socials).map((elem) => {
 											return (
 												<div key={elem.id} className='connectSocialBoxContent'>
 													<Link to={elem.link} target="_blank">
@@ -139,7 +146,7 @@ const Connect = () => {
 															src={elem.logo}
 															alt=''
 															className="homeXPimg PC"
-															title={elem.title} />
+															title={elem.msg} />
 														<img
 															src={elem.logoM}
 															alt=''

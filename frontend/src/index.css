@@ -23,8 +23,9 @@ html {
 body {
 	background-color: #282c34;
 	color: white;
+	-webkit-user-select: none;
 	user-select: none;
-	overflow-y: scroll;
+	overflow-y: none;
 }
 
 ::-webkit-scrollbar {
@@ -56,9 +57,9 @@ a {
 	color: inherit;
 }
 
-img {
+/* img {
 	-webkit-user-drag: none;
-}
+} */
 
 /* ul {
 	list-style-type: none;

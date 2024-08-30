@@ -1,11 +1,30 @@
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import axios from "axios";
 
-import Data from "../Data";
 import Navbar from "./Navbar";
 import IntroComponent from "./IntroComponent";
 
 const Home = () => {
 	window.localStorage.setItem("page", 0);
+
+	const [Acads, setAcads] = useState({});
+	const [XP, setXP] = useState({});
+
+	const fetchAcad = async () => {
+		let acadData = await axios.get("/api/acads");
+		setAcads(acadData.data);
+	}; // Fetch the academic details of the user (here, Aditya Pandey)
+
+	const fetchXP = async () => {
+		let XPData = await axios.get("/api/xps");
+		setXP(XPData.data);
+	}; // Fetch the experience details of the user (here, Aditya Pandey)
+
+	useEffect(() => {
+		fetchAcad();
+		fetchXP();
+	}, []);
 
 	return (
 		<>
@@ -24,7 +43,7 @@ const Home = () => {
 							<div className="homeComponent">
 								<div className="homeComponentHeading">EDUCATION</div>
 								{
-									Object.values(Data.homePage.academics).map((elem) => {
+									Object.values(Acads).map((elem) => {
 										return (
 											<div key={elem.id} className="homeAcadContent">
 												<div className="homeAcadHeading"> {elem.name} </div>
@@ -42,11 +61,11 @@ const Home = () => {
 
 
 						<div className="col-2">
-							<div className="homeComponent">
+							<div className="homeComponent xpScroll">
 								<div className="homeComponentHeading">EXPERIENCE</div>
 								<div className="homeXP">
 									{
-										Data.homePage.experience.map((elem) => {
+										Object.values(XP).map((elem) => {
 											return (
 												<div key={elem.id} className='homeXPContent'>
 													<img
