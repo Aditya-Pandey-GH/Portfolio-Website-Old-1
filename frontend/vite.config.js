@@ -8,7 +8,7 @@ export default defineConfig({
 		port: 1609,
 		proxy: {
 			"/api": {
-				target: "https://pandey-ji-portfolio-bkapi.vercel.app",
+				target: "https://aditya-pandey-portfolio.onrender.com/",
 				changeOrigin: true,
 				rewrite: (path) => path.replace(/^\/api/, "/api"),
 			},
