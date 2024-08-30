@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 
 // MongoDB Backend
 mongoose
-	// .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 	.connect(process.env.MONGO_URI)
 	.then(() => { console.log("MongoDB connected successfully to Adi's PortFolio"); })
 	.catch((err) => { console.log(err); });
