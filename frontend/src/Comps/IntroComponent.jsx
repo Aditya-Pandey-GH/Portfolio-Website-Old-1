@@ -34,11 +34,12 @@ const IntroComponent = () => {
 			<div className='homeDetailsProf' style={{ zoom: "125%" }}>
 				I am a
 				<Typewriter
-					// words={[
-					// 	"HEY PROFESSIONALS 👋",
-					// 	"I am " + Data.regularName
-					// ]}
-					words={Data.profession}
+					words={[
+						" Software Developer.",
+						" UI/UX Designer.",
+						" Photo Editor.",
+						" Video Editor."
+					]}
 					loop={0}
 					typeSpeed={40}
 					deleteSpeed={40}
