@@ -8,7 +8,7 @@ export default defineConfig({
 		port: 1609,
 		proxy: {
 			"/api": {
-				target: "https://pandey-ji-1609-bkapi.vercel.app",
+				target: "https://pandey-ji-portfolio-bkapi.vercel.app",
 				changeOrigin: true,
 				rewrite: (path) => path.replace(/^\/api/, "/api"),
 			},
