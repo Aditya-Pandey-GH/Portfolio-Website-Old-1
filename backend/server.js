@@ -7,6 +7,7 @@ require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 16091;
+console.log("LOL LMAO OUTSIDE");
 
 app.use(cors(
 	{
@@ -100,7 +101,7 @@ app.post('/api/send-email', (req, res) => {
 // --------------------------------------------------------------------------------------------------------------------------------------------
 
 app.get('/', (req, res) => {
-	res.send("LOL LMAO");
+	res.send("LOL LMAO INSIDE");
 });
 
 app.listen(port, () => {
