@@ -8,8 +8,10 @@ import { useEffect, useState } from "react";
 const IntroComponent = () => {
 	const [Data, setData] = useState("");
 
+	const url = "https://pandey-ji-portfolio-bkapi.onrender.com";
+
 	const fetchUser = async () => {
-		let userData = await axios.get("/api/users");
+		let userData = await axios.get(url + "/api/users");
 		setData(userData.data);
 	};
 
