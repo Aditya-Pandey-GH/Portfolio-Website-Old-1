@@ -135,19 +135,18 @@ const Data = () => {
 					>
 						<div className="splashContainer">
 							<div className="profile">
-								<img
+								{/* <img
 									src={Data.pfp}
 									alt="Not Found"
 									// title='Go to profile'
 									className="pfp"
-								/>
+								/> */}
 								<div className="detailsAdi">
-									<div className="detailsAdiName">{Data.capsName}</div>
-									{/* <div className='detailsAdiProf'>[ {Data.dob} ]</div> */}
+									{/* <div className="detailsAdiName">{Data.capsName}</div>
 									<div className="homeDetailsProf">
 										<span style={{ fontFamily: "sans-serif" }}>(</span> {Data.dob} <span style={{ fontFamily: "sans-serif" }}>)</span>
 									</div>
-									<div style={{ height: "3rem" }} />
+									<div style={{ height: "3rem" }} /> */}
 									<div className="waitForIt">
 										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32" className="loadingSpinner">
 											<path
