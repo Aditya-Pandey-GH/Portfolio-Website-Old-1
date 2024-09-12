@@ -10,7 +10,8 @@ const port = process.env.PORT || 16091;
 
 app.use(
 	cors({
-		origin: ["http://192.168.1.3:1609/"],
+		origin: "https://aditya-pandey.onrender.com/",
+		optionsSuccessStatus: 200,
 		methods: ["POST", "GET"],
 		credentials: true,
 	})
