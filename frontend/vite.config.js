@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,11 +8,11 @@ export default defineConfig({
 		port: 1609,
 		proxy: {
 			"/api": {
-				target: "https://pandey-ji-portfolio-bkapi.onrender.com",
+				target: import.meta.env.VITE_SERVER_URL,
 				// target: "http://127.0.0.1:16091",
 				changeOrigin: true,
 				rewrite: (path) => path.replace(/^\/api/, "/api"),
 			},
 		},
 	},
-})
+});
