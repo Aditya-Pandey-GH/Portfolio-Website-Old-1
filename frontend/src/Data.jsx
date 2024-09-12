@@ -7,6 +7,7 @@ import App from "./App";
 const Data = () => {
 	const [loading, setLoading] = useState(true);
 	const [Data, setData] = useState("");
+	const baseURL = import.meta.env.VITE_SERVER_URL;
 
 	// const [Acads, setAcads] = useState({});
 	// const [XP, setXP] = useState({});
@@ -21,73 +22,73 @@ const Data = () => {
 	// const [Socials, setSocials] = useState({});
 
 	const fetchUser = async () => {
-		const userData = await axios.get("/api/users");
+		const userData = await axios.get(baseURL + "/api/users");
 		setData(userData.data);
 		window.localStorage.setItem("userData ", JSON.stringify(userData.data));
 	}; // Fetch the details of the user (here, Aditya Pandey)
 
 	const fetchAcad = async () => {
-		const acadData = await axios.get("/api/acads");
+		const acadData = await axios.get(baseURL + "/api/acads");
 		// setAcads(acadData.data);
 		window.localStorage.setItem("acadData ", JSON.stringify(acadData.data));
 	}; // Fetch the academic details of the user (here, Aditya Pandey)
 
 	const fetchXP = async () => {
-		const XPData = await axios.get("/api/xps");
+		const XPData = await axios.get(baseURL + "/api/xps");
 		// setXP(XPData.data);
 		window.localStorage.setItem("XPData ", JSON.stringify(XPData.data));
 	}; // Fetch the experience details of the user (here, Aditya Pandey)
 
 	const fetchTech = async () => {
-		const techData = await axios.get("/api/techs");
+		const techData = await axios.get(baseURL + "/api/techs");
 		// setTechs(techData.data);
 		window.localStorage.setItem("techData ", JSON.stringify(techData.data));
 	}; // Fetch the details of the tech stacks known to the user (here, Aditya Pandey)
 
 	const fetchLang = async () => {
-		const langData = await axios.get("/api/langs");
+		const langData = await axios.get(baseURL + "/api/langs");
 		// setTechs(langData.data);
 		window.localStorage.setItem("langData ", JSON.stringify(langData.data));
 	}; // Fetch the details of the programming languages known to the user (here, Aditya Pandey)
 
 	const fetchDB = async () => {
-		const dbData = await axios.get("/api/dbs");
+		const dbData = await axios.get(baseURL + "/api/dbs");
 		// setDBs(dbData.data);
 		window.localStorage.setItem("dbData ", JSON.stringify(dbData.data));
 	}; // Fetch the details of the databases known to the user (here, Aditya Pandey)
 
 	const fetchWelfare = async () => {
-		const welfareData = await axios.get("/api/welfares");
+		const welfareData = await axios.get(baseURL + "/api/welfares");
 		// setWelfares(welfareData.data);
 		window.localStorage.setItem("welfareData ", JSON.stringify(welfareData.data));
 	}; // Fetch the details of the social welfare works done by the user (here, Aditya Pandey)
 
 	const fetchCert = async () => {
-		const certData = await axios.get("/api/certs");
+		const certData = await axios.get(baseURL + "/api/certs");
 		// setCerts(certData.data);
 		window.localStorage.setItem("certData ", JSON.stringify(certData.data));
 	}; // Fetch the details of the certificates recieved by the user (here, Aditya Pandey)
 
 	const fetchAch = async () => {
-		const achData = await axios.get("/api/achs");
+		const achData = await axios.get(baseURL + "/api/achs");
 		// setAchs(achData.data);
 		window.localStorage.setItem("achData ", JSON.stringify(achData.data));
 	}; // Fetch the details of the achievements of the user (here, Aditya Pandey)
 
 	const fetchPersonal = async () => {
-		const personalData = await axios.get("/api/personals");
+		const personalData = await axios.get(baseURL + "/api/personals");
 		// setPersonals(personalData.data);
 		window.localStorage.setItem("personalData ", JSON.stringify(personalData.data));
 	}; // Fetch the details of the personal projects made by the user (here, Aditya Pandey)
 
 	const fetchProf = async () => {
-		const profData = await axios.get("/api/profs");
+		const profData = await axios.get(baseURL + "/api/profs");
 		// setProfs(profData.data);
 		window.localStorage.setItem("profData ", JSON.stringify(profData.data));
 	}; // Fetch the details of the professional projects made by the user (here, Aditya Pandey)
 
 	const fetchSocial = async () => {
-		const socialData = await axios.get("/api/socials");
+		const socialData = await axios.get(baseURL + "/api/socials");
 		// setSocials(socialData.data);
 		window.localStorage.setItem("socialData ", JSON.stringify(socialData.data));
 	}; // Fetch the details of the social media accounts of the user (here, Aditya Pandey)
