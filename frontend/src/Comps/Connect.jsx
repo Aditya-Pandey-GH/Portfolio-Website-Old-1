@@ -141,8 +141,9 @@ const Connect = () => {
 										return (
 											<div key={elem.id} className="connectSocialBoxContent">
 												<Link to={elem.link} target="_blank">
-													<img src={elem.logo} alt="" className="homeXPimg PC" title={elem.msg} />
-													<img src={elem.logoM} alt="" className="homeXPimg Mobile" />
+													{/* <img src={elem.logo} alt="" className="homeXPimg PC" title={elem.msg} />
+													<img src={elem.logoM} alt="" className="homeXPimg Mobile" /> */}
+													<img src={elem.logo} alt="" className="homeXPimg" title={elem.msg} />
 												</Link>
 												<div className="homeAcadHeading" style={{ fontFamily: "Iceberg" }}>
 													{elem.name}
