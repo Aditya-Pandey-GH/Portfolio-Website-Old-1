@@ -135,21 +135,19 @@ const Data = () => {
 					>
 						<div className="splashContainer">
 							<div className="profile">
-								{/* <img
-									src={Data.pfp}
+								<img
+									src="https://i.postimg.cc/4ysN00wx/pfp.jpg"
 									alt="Not Found"
 									// title='Go to profile'
 									className="pfp"
-								/> */}
+								/>
 								<div className="detailsAdi">
-									{/* <div className="detailsAdiName">{Data.capsName}</div>
+									<div className="detailsAdiName">ADITYA PANDEY</div>
 									<div className="homeDetailsProf">
-										<span style={{ fontFamily: "sans-serif" }}>(</span> {Data.dob} <span style={{ fontFamily: "sans-serif" }}>)</span>
+										<span style={{ fontFamily: "sans-serif" }}>(</span> 16 September 2003 <span style={{ fontFamily: "sans-serif" }}>)</span>
 									</div>
-									<div style={{ height: "3rem" }} /> */}
+									<div style={{ height: "3rem" }} />
 									<div className="waitForIt">
-										Loading
-										<br />
 										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32" className="loadingSpinner">
 											<path
 												stroke="#646464"
@@ -168,6 +166,8 @@ const Data = () => {
 											/>
 											<circle cx="16" cy="16" r="5" stroke="#646464" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
 										</svg>
+										<br />
+										Loading
 										<br />
 										Please Wait...
 									</div>
