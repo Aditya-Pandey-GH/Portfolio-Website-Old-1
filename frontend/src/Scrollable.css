@@ -1,50 +1,27 @@
-@media screen and (min-width: 1025px) {
+.pagination {
+	display: flex;
+	justify-content: center;
+	margin-top: 1rem;
+}
 
-	body {
-		overflow: hidden;
-	}
+.paginationButton {
+	font-family: Langar, serif;
+	color: #1e2127;
+	background: #ffffff;
+	border: none;
+	border-radius: 0.2rem;
+	padding: 10px 15px;
+	margin: 0 5px;
+	cursor: pointer;
+}
 
-	.col-1 {
-		height: 96vh;
-		overflow-y: auto;
+.paginationButton.active {
+	background-color: #ffc700;
+}
 
-		/* Hides the scrollbar while keeping scrolling functionality */
-		/* For WebKit browsers (Chrome, Safari) */
-		&::-webkit-scrollbar {
-			width: 0;
-			height: 0;
-		}
+.paginationButton:hover {
+	opacity: 75%;
+}
 
-		/* Hides the scrollbar */
-
-		/* For Firefox */
-		scrollbar-width: none;
-		/* Hides the scrollbar */
-
-		/* For Internet Explorer 10+ */
-		-ms-overflow-style: none;
-		/* Hides the scrollbar */
-	}
-
-	.col-2 {
-		height: 96vh;
-		overflow-y: auto;
-
-		/* Hides the scrollbar while keeping scrolling functionality */
-		/* For WebKit browsers (Chrome, Safari) */
-		&::-webkit-scrollbar {
-			width: 0;
-			height: 0;
-		}
-
-		/* Hides the scrollbar */
-
-		/* For Firefox */
-		scrollbar-width: none;
-		/* Hides the scrollbar */
-
-		/* For Internet Explorer 10+ */
-		-ms-overflow-style: none;
-		/* Hides the scrollbar */
-	}
+@media screen and (max-width: 1024px) {
 }

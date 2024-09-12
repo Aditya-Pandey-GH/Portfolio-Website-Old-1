@@ -1,127 +1,80 @@
-
 // The App file for the Portfolio website of Aditya Pandey
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import axios from 'axios';
 
-// import Data from './Data';
-import Home from './Comps/Home';
-import Skills from './Comps/Skills';
-import Achievements from './Comps/Achievements';
-import Projects from './Comps/Projects';
-import Connect from './Comps/Connect';
-import Gallery from './Comps/Gallery';
-import NotFound from './Comps/NotFound';
+import Home from "./Comps/Home";
+import Skills from "./Comps/Skills";
+import Achievements from "./Comps/Achievements";
+import Projects from "./Comps/Projects";
+import Connect from "./Comps/Connect";
+import Gallery from "./Comps/Gallery";
+import NotFound from "./Comps/NotFound";
 
-import './App.css';
-// import './Scrollable.css';
+import "./App.css";
+import "./Scrollable.css";
 
 const App = () => {
+	// const Data = {
+	// 	regularName: "Aditya Pandey",
+	// 	capsName: "ADITYA PANDEY",
+	// 	profession: [" Software Developer.", " UI/UX Designer.", " Photo Editor.", " Video Editor."],
+	// 	pfp: "https://i.postimg.cc/4ysN00wx/pfp.jpg",
+	// 	resumeLink: "https://drive.google.com/uc?export=download&id=1LevdCSu8KjueKHenjoMMaREGXmjJqo33",
+	// 	dob: "16 September 2003",
+	// };
+	// const [Data, setData] = useState("");
+	// const fetchUser = async () => {
+	// 	let userData = await axios.get("/api/users");
+	// 	setData(userData.data);
+	// }; // Fetch the details of the user (here, Aditya Pandey)
 
-	const url = "https://pandey-ji-portfolio-bkapi.onrender.com";
-
-	const [loading, setLoading] = useState(true);
-	const [Data, setData] = useState("");
-
-	const fetchUser = async () => {
-		let userData = await axios.get(url + "/api/users");
-		setData(userData.data);
-	}; // Fetch the details of the user (here, Aditya Pandey)
-
-	useEffect(() => {
-		fetchUser();
-		document.addEventListener("contextmenu", (e) => {
-			e.preventDefault();
-		});	// To remove the context menu, when user right-clicks
-
-		document.addEventListener('dragstart', function (e) {
-			e.preventDefault();
-		}); // To prevent users from dragging an image from the website
-
-		document.onkeydown = function (e) {
-			if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C'))) {
-				return false;
-			}
-			// // Prevent F12
-			// if (e.key === 'F12') {
-			// 	alert("Inspect Menu can't be opened");
-			// 	return false;
-			// }
-			// // Prevent Ctrl+Shift+I
-			// if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-			// 	alert("Inspect Menu can't be opened");
-			// 	return false;
-			// }
-			// // Prevent Ctrl+Shift+C
-			// if (e.ctrlKey && e.shiftKey && e.key === 'C') {
-			// 	alert("Inspect Menu can't be opened");
-			// 	return false;
-			// }
-		}; // To prevent the users from accessing the Dev Tools/ Inspect Menu
-
-		setTimeout(() => {
-			setLoading(false);
-		}, 3000); // For Splash Screen, which shows the basic details about the user (here, Aditya Pandey)
-	}, []);
+	// useEffect(() => {
+	// 	// fetchUser();
+	// 	document.addEventListener("contextmenu", (e) => {
+	// 		e.preventDefault();
+	// 	}); // To remove the context menu, when user right-clicks
+	// 	document.addEventListener("dragstart", function (e) {
+	// 		e.preventDefault();
+	// 	}); // To prevent users from dragging an image from the website
+	// 	document.onkeydown = function (e) {
+	// 		if (e.key === "F12" || (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "C"))) {
+	// 			return false;
+	// 		}
+	// 		// // Prevent F12
+	// 		// if (e.key === 'F12') {
+	// 		// 	alert("Inspect Menu can't be opened");
+	// 		// 	return false;
+	// 		// }
+	// 		// // Prevent Ctrl+Shift+I
+	// 		// if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+	// 		// 	alert("Inspect Menu can't be opened");
+	// 		// 	return false;
+	// 		// }
+	// 		// // Prevent Ctrl+Shift+C
+	// 		// if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+	// 		// 	alert("Inspect Menu can't be opened");
+	// 		// 	return false;
+	// 		// }
+	// 	}; // To prevent the users from accessing the Dev Tools/ Inspect Menu
+	// }, []);
 
 	return (
-		<AnimatePresence>
-			{loading ?
-				// The following code will display a splash screen to the user, each time, user runs the website.
-				<motion.div
-					key={"splash-screen"}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ duration: 0.5, ease: "easeOut" }}
-					exit={{ opacity: 0, transition: { duration: 0.25, ease: "easeOut" } }}>
-					<div className='splashContainer'>
-						<div className='profile'>
-							<img
-								src={Data.pfp}
-								alt='Not Found'
-								// title='Go to profile'
-								className='pfp' />
-							<div className='detailsAdi'>
-								<div className='detailsAdiName'>{Data.capsName}</div>
-								{/* <div className='detailsAdiProf'>[ {Data.dob} ]</div> */}
-								<div className='homeDetailsProf'>
-									<span style={{ fontFamily: "sans-serif" }}>(</span> {Data.dob} <span style={{ fontFamily: "sans-serif" }}>)</span>
-								</div>
-								<div style={{ height: "3rem" }} />
-								<div className='waitForIt'>
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32" className='loadingSpinner'>
-										<path stroke="#646464" strokeLinejoin="round" strokeWidth="2" d="M13.905 3.379A.5.5 0 0114.39 3h3.22a.5.5 0 01.485.379l.689 2.757a.515.515 0 00.341.362c.383.126.755.274 1.115.443a.515.515 0 00.449-.003l2.767-1.383a.5.5 0 01.577.093l2.319 2.319a.5.5 0 01.093.577l-1.383 2.767a.515.515 0 00-.003.449c.127.271.243.549.346.833.053.148.17.265.319.315l2.934.978a.5.5 0 01.342.474v3.28a.5.5 0 01-.342.474l-2.934.978a.515.515 0 00-.32.315 9.937 9.937 0 01-.345.833.515.515 0 00.003.449l1.383 2.767a.5.5 0 01-.093.577l-2.319 2.319a.5.5 0 01-.577.093l-2.767-1.383a.515.515 0 00-.449-.003c-.271.127-.549.243-.833.346a.515.515 0 00-.315.319l-.978 2.934a.5.5 0 01-.474.342h-3.28a.5.5 0 01-.474-.342l-.978-2.934a.515.515 0 00-.315-.32 9.95 9.95 0 01-1.101-.475.515.515 0 00-.498.014l-2.437 1.463a.5.5 0 01-.611-.075l-2.277-2.277a.5.5 0 01-.075-.61l1.463-2.438a.515.515 0 00.014-.498 9.938 9.938 0 01-.573-1.383.515.515 0 00-.362-.341l-2.757-.69A.5.5 0 013 17.61v-3.22a.5.5 0 01.379-.485l2.757-.689a.515.515 0 00.362-.341c.157-.478.35-.94.573-1.383a.515.515 0 00-.014-.498L5.594 8.557a.5.5 0 01.075-.611l2.277-2.277a.5.5 0 01.61-.075l2.438 1.463c.152.091.34.094.498.014a9.938 9.938 0 011.382-.573.515.515 0 00.342-.362l.69-2.757z" />
-										<circle cx="16" cy="16" r="5" stroke="#646464" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-									</svg>
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32" className='reverseSpinner'>
-										<path stroke="#646464" strokeLinejoin="round" strokeWidth="2" d="M13.905 3.379A.5.5 0 0114.39 3h3.22a.5.5 0 01.485.379l.689 2.757a.515.515 0 00.341.362c.383.126.755.274 1.115.443a.515.515 0 00.449-.003l2.767-1.383a.5.5 0 01.577.093l2.319 2.319a.5.5 0 01.093.577l-1.383 2.767a.515.515 0 00-.003.449c.127.271.243.549.346.833.053.148.17.265.319.315l2.934.978a.5.5 0 01.342.474v3.28a.5.5 0 01-.342.474l-2.934.978a.515.515 0 00-.32.315 9.937 9.937 0 01-.345.833.515.515 0 00.003.449l1.383 2.767a.5.5 0 01-.093.577l-2.319 2.319a.5.5 0 01-.577.093l-2.767-1.383a.515.515 0 00-.449-.003c-.271.127-.549.243-.833.346a.515.515 0 00-.315.319l-.978 2.934a.5.5 0 01-.474.342h-3.28a.5.5 0 01-.474-.342l-.978-2.934a.515.515 0 00-.315-.32 9.95 9.95 0 01-1.101-.475.515.515 0 00-.498.014l-2.437 1.463a.5.5 0 01-.611-.075l-2.277-2.277a.5.5 0 01-.075-.61l1.463-2.438a.515.515 0 00.014-.498 9.938 9.938 0 01-.573-1.383.515.515 0 00-.362-.341l-2.757-.69A.5.5 0 013 17.61v-3.22a.5.5 0 01.379-.485l2.757-.689a.515.515 0 00.362-.341c.157-.478.35-.94.573-1.383a.515.515 0 00-.014-.498L5.594 8.557a.5.5 0 01.075-.611l2.277-2.277a.5.5 0 01.61-.075l2.438 1.463c.152.091.34.094.498.014a9.938 9.938 0 011.382-.573.515.515 0 00.342-.362l.69-2.757z" />
-										<circle cx="16" cy="16" r="5" stroke="#646464" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-									</svg>
-									<br />
-									Loading<br />Please Wait...
-								</div>
-							</div>
-						</div>
-					</div>
-				</motion.div> :
-				<>
-					<Router>
-						<Routes>
-							<Route path='/' element={<Home />} />
-							<Route path='/notFound' element={<NotFound />} />
-							<Route path='/skills' element={<Skills />} />
-							<Route path='/achievements' element={<Achievements />} />
-							<Route path='/projects' element={<Projects />} />
-							<Route path='/connect' element={<Connect />} />
-							<Route path='/gallery' element={<Gallery />} />
-							<Route path="*" element={<Navigate to="/notFound" />} />
-						</Routes>
-					</Router>
-				</>
-			}
-		</AnimatePresence>
+		<>
+			<Router>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/notFound" element={<NotFound />} />
+					<Route path="/skills" element={<Skills />} />
+					<Route path="/achievements" element={<Achievements />} />
+					<Route path="/projects" element={<Projects />} />
+					<Route path="/connect" element={<Connect />} />
+					<Route path="/gallery" element={<Gallery />} />
+					<Route path="*" element={<Navigate to="/notFound" />} />
+				</Routes>
+			</Router>
+		</>
 	);
 };
 

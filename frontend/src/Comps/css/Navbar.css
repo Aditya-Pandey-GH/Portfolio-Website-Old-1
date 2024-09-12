@@ -1,5 +1,5 @@
 .navContainer {
-	background-color: #313A4B;
+	background-color: #313a4b;
 	line-height: normal;
 	width: 15rem;
 	height: 100%;
@@ -41,6 +41,7 @@
 }
 
 .navItems {
+	list-style-type: none;
 	position: absolute;
 	width: 100%;
 	top: 50%;
@@ -62,16 +63,11 @@
 	background-color: #212936;
 }
 
-
-
 .nameNav {
 	font-family: Iceberg, "sans-serif";
 	font-size: large;
 	font-weight: 100;
 }
-
-
-
 
 /* Media Queries */
 
@@ -120,7 +116,6 @@
 			margin: -0.5rem 0;
 		}
 	}
-
 }
 
 /* Very small screens */

@@ -20,7 +20,7 @@
 	width: 10rem;
 	margin: 1rem 0 2rem 0;
 	border-radius: 50%;
-	box-shadow: 0 0 2.5rem 0 #FFF;
+	box-shadow: 0 0 2.5rem 0 #fff;
 	/* transition: ease-out 0.25s; */
 }
 
@@ -50,7 +50,7 @@
 
 .detailsAdiCV:hover {
 	background-color: #5b667a;
-	color: #00FF00;
+	color: #00ff00;
 }
 
 .detailsAdiCV svg {
@@ -70,14 +70,6 @@
 	width: 3rem;
 	color: white;
 }
-
-
-
-
-
-
-
-
 
 .homeContainer {
 	padding: 1rem;
@@ -106,7 +98,7 @@
 	width: 10rem;
 	border-radius: 50%;
 	margin: 1rem 0;
-	box-shadow: 0 0 2.5rem 0 #FFF;
+	box-shadow: 0 0 2.5rem 0 #fff;
 }
 
 .homeDetailsName {
@@ -133,12 +125,16 @@
 
 .homeDetailsCV:hover {
 	background-color: #5b667a;
-	color: #00FF00;
+	color: #00ff00;
+}
+
+.homeDetailsCV a {
+	display: flex;
 }
 
 .homeDetailsCV img {
 	width: 1.5rem;
-	margin: 0 1rem;
+	margin: 0 0.5rem 0 0;
 }
 
 .homeComponentHeading {
@@ -217,7 +213,6 @@
 	margin-top: 1rem;
 	/* margin-left: 2rem; */
 	padding: 0.3rem 1rem;
-
 }
 
 .homeWelfareSubContent {
@@ -259,15 +254,6 @@
 	height: 20rem;
 }
 
-
-
-
-
-
-
-
-
-
 /* MEDIA QUERIES START */
 
 @media screen and (max-width: 1024px) {
@@ -283,7 +269,6 @@
 }
 
 @media screen and (max-width: 768px) {
-
 	.splashContainer {
 		width: 100%;
 		max-width: 100%;
@@ -296,7 +281,7 @@
 	.pfp {
 		width: 7.5rem;
 		margin: 1rem 0 1rem 0;
-		box-shadow: 0 0 2rem 0 #FFF;
+		box-shadow: 0 0 2rem 0 #fff;
 	}
 
 	.detailsAdiName {
@@ -365,7 +350,6 @@
 }
 
 @media screen and (max-width: 350px) {
-
 	/* .homeDetailsCV {
 		font-size: smaller;
 	} */
@@ -376,7 +360,6 @@
 }
 
 /* MEDIA QUERIES END */
-
 
 /* ANIMATIONS START */
 
