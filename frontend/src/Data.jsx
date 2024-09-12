@@ -146,7 +146,7 @@ const Data = () => {
 									<div className="homeDetailsProf">
 										<span style={{ fontFamily: "sans-serif" }}>(</span> 16 September 2003 <span style={{ fontFamily: "sans-serif" }}>)</span>
 									</div>
-									<div style={{ height: "3rem" }} />
+									<div style={{ height: "1.5rem" }} />
 									<div className="waitForIt">
 										<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32" className="loadingSpinner">
 											<path
