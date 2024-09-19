@@ -6,7 +6,7 @@ import App from "./App";
 
 const Data = () => {
 	const [loading, setLoading] = useState(true);
-	const [Data, setData] = useState("");
+	// const [Data, setData] = useState("");
 	const baseURL = import.meta.env.VITE_SERVER_URL;
 
 	// const [Acads, setAcads] = useState({});
@@ -23,7 +23,7 @@ const Data = () => {
 
 	const fetchUser = async () => {
 		const userData = await axios.get(baseURL + "/api/users");
-		setData(userData.data);
+		// setData(userData.data);
 		window.localStorage.setItem("userData ", JSON.stringify(userData.data));
 	}; // Fetch the details of the user (here, Aditya Pandey)
 
