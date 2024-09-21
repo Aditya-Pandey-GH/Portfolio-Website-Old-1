@@ -9,9 +9,11 @@ const app = express();
 const port = process.env.PORT || 16091;
 
 app.use(
-	cors({
-		origin: "https://aditya-pandey.onrender.com",
+	cors({		
+		origin: ["https://aditya-pandey.onrender.com"],
+		methods: ["GET"],
 		optionsSuccessStatus: 200,
+		credentials: true
 	})
 );
 app.use(bodyParser.json());
