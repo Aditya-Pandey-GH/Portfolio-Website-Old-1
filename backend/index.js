@@ -9,21 +9,20 @@ const app = express();
 const port = process.env.PORT || 16091;
 
 app.use(
-	cors({		
+	cors({
 		origin: "https://aditya-pandey.onrender.com",
 		methods: ["GET"],
 		optionsSuccessStatus: 200,
-		credentials: true
+		credentials: true,
 	})
 );
 app.use(bodyParser.json());
 
 // MongoDB Backend
 mongoose
-	// .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 	.connect(process.env.MONGO_URI)
 	.then(() => {
-		console.log("MongoDB connected successfully to Adi's PortFolio");
+		console.log("MongoDB connected successfully to Portfolio Database.");
 	})
 	.catch((err) => {
 		console.log(err);
@@ -61,6 +60,15 @@ app.use("/api/personals", personals);
 
 const profs = require("./routes/profs");
 app.use("/api/profs", profs);
+
+const posters = require("./routes/posters");
+app.use("/api/posters", posters);
+
+const thumbs = require("./routes/thumbs");
+app.use("/api/thumbs", thumbs);
+
+const designs = require("./routes/designs");
+app.use("/api/designs", designs);
 
 const socials = require("./routes/socials");
 app.use("/api/socials", socials);

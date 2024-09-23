@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const CertSchema = new Schema({
+const ThumbSchema = new Schema({
 	id: {
 		type: String,
 		unique: true,
@@ -15,22 +15,14 @@ const CertSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	by: {
-		type: String,
-		required: true,
-	},
-	on: {
-		type: String,
-		required: true,
-	},
 	logo: {
 		type: String,
 		required: true,
 	},
-	preview: {
+	link: {
 		type: String,
 		required: true,
 	},
 });
 
-module.exports = Cert = mongoose.model('Cert', CertSchema);
+module.exports = Thumb = mongoose.model("Thumb", ThumbSchema);
