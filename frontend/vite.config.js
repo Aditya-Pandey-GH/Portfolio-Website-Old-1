@@ -8,8 +8,6 @@ export default defineConfig({
 		port: 1609,
 		proxy: {
 			"/api": {
-				// target: import.meta.env.VITE_PROXY_TARGET,
-				// target: "https://pandey-ji-portfolio-bkapi.onrender.com",
 				// target: "http://127.0.0.1:16091",
 				changeOrigin: true,
 				rewrite: (path) => path.replace(/^\/api/, "/api"),
