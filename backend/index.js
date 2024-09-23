@@ -10,7 +10,7 @@ const port = process.env.PORT || 16091;
 
 app.use(
 	cors({
-		origin: "https://aditya-pandey.onrender.com",
+		origin: "https://aditya-pandey.vercel.app/",
 		methods: ["GET"],
 		optionsSuccessStatus: 200,
 		credentials: true,
