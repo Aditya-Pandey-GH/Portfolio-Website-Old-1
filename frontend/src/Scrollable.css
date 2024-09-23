@@ -12,16 +12,13 @@
 	border-radius: 0.2rem;
 	padding: 10px 15px;
 	margin: 0 5px;
-	cursor: pointer;
 }
 
 .paginationButton.active {
 	background-color: #ffc700;
+	cursor: pointer;
 }
 
-.paginationButton:hover {
+.paginationButton.active:hover {
 	opacity: 75%;
-}
-
-@media screen and (max-width: 1024px) {
 }

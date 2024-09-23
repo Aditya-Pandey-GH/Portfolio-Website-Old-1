@@ -1,7 +1,7 @@
 // The App file for the Portfolio website of Aditya Pandey
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
+import axios from "axios";
 import App from "./App";
 
 const Data = () => {
@@ -87,6 +87,24 @@ const Data = () => {
 		window.localStorage.setItem("profData ", JSON.stringify(profData.data));
 	}; // Fetch the details of the professional projects made by the user (here, Aditya Pandey)
 
+	const fetchPoster = async () => {
+		const posterData = await axios.get(baseURL + "/api/posters");
+		// setProfs(posterData.data);
+		window.localStorage.setItem("posterData ", JSON.stringify(posterData.data));
+	}; // Fetch the details of the posters made by the user (here, Aditya Pandey)
+
+	const fetchThumb = async () => {
+		const thumbData = await axios.get(baseURL + "/api/thumbs");
+		// setProfs(thumbData.data);
+		window.localStorage.setItem("thumbData ", JSON.stringify(thumbData.data));
+	}; // Fetch the details of the thumbnails made by the user (here, Aditya Pandey)
+
+	const fetchDesign = async () => {
+		const designData = await axios.get(baseURL + "/api/designs");
+		// setProfs(designData.data);
+		window.localStorage.setItem("designData ", JSON.stringify(designData.data));
+	}; // Fetch the details of the remaining designs made by the user (here, Aditya Pandey)
+
 	const fetchSocial = async () => {
 		const socialData = await axios.get(baseURL + "/api/socials");
 		// setSocials(socialData.data);
@@ -94,16 +112,11 @@ const Data = () => {
 	}; // Fetch the details of the social media accounts of the user (here, Aditya Pandey)
 
 	useEffect(() => {
-		fetchUser();
-
-		document.addEventListener("contextmenu", (e) => {
-			e.preventDefault();
-		}); // To remove the context menu, when user right-clicks
-
-		document.addEventListener("dragstart", function (e) {
-			e.preventDefault();
-		}); // To prevent users from dragging an image from the website
-
+		// console.log(window.localStorage.getItem("userData "));
+		(async () => {
+			await fetchUser();
+		})();
+		// console.log(window.localStorage.getItem("userData "));
 		setTimeout(async () => {
 			await fetchAcad();
 			await fetchXP();
@@ -115,6 +128,9 @@ const Data = () => {
 			await fetchAch();
 			await fetchPersonal();
 			await fetchProf();
+			await fetchThumb();
+			await fetchDesign();
+			await fetchPoster();
 			await fetchSocial();
 			setLoading(false);
 		}, 1000); // For Splash Screen, which shows the basic details about the user (here, Aditya Pandey)
@@ -131,7 +147,10 @@ const Data = () => {
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ duration: 0.5, ease: "easeOut" }}
-						exit={{ opacity: 0, transition: { duration: 0.25, ease: "easeOut" } }}
+						exit={{
+							opacity: 0,
+							transition: { duration: 0.25, ease: "easeOut" },
+						}}
 					>
 						<div className="splashContainer">
 							<div className="profile">

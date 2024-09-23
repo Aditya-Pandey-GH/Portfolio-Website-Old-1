@@ -36,7 +36,7 @@ const Projects = () => {
 
 	// PAGINATION PROF STARTS
 	const [curProfPage, setCurProfPage] = useState(1);
-	const ProfsPerPage = 3;
+	const ProfsPerPage = 2;
 	const lastProfIndex = curProfPage * ProfsPerPage;
 	const firstProfIndex = lastProfIndex - ProfsPerPage;
 	const currentProfs = Object.values(Profs).slice(firstProfIndex, lastProfIndex);
@@ -67,7 +67,7 @@ const Projects = () => {
 							<IntroComponent />
 
 							<div className="homeComponent">
-								<div className="homeComponentHeading">PROFESSIONAL PROJECTS</div>
+								<div className="homeComponentHeading">APPS AND WEBSITES</div>
 								<div className="homeXP">
 									{currentProfs.map((elem) => {
 										return (
@@ -75,20 +75,45 @@ const Projects = () => {
 												<img src={elem.logo} alt="Not Found" className="homeXPimg" />
 												<div>
 													<div className="homeAcadHeading">{elem.name}</div>
-													<div className="homeAcadSubContent" style={{ marginTop: "1rem" }}>
+													<div
+														className="homeAcadSubContent"
+														style={{
+															marginTop: "1rem",
+														}}
+													>
 														{elem.desc}
 													</div>
-													<div className="homeAcadSubContent" style={{ marginTop: "1rem" }}>
+													<div
+														className="homeAcadSubContent"
+														style={{
+															marginTop: "1rem",
+														}}
+													>
 														Languages:{" "}
-														<ul style={{ marginLeft: "1.5rem" }}>
+														<ul
+															style={{
+																marginLeft: "1.5rem",
+															}}
+														>
 															{Object.values(elem.lang).map((lang) => {
 																return <li key={lang}>{lang}</li>;
 															})}
 														</ul>
 													</div>
 													{elem.link !== "" ? (
-														<div className="homeAcadSubContent" style={{ marginTop: "1rem" }}>
-															<img src={Site} alt="" style={{ width: "1.5rem" }} />
+														<div
+															className="homeAcadSubContent"
+															style={{
+																marginTop: "1rem",
+															}}
+														>
+															<img
+																src={Site}
+																alt=""
+																style={{
+																	width: "1.5rem",
+																}}
+															/>
 															<Link to={elem.link} target="_blank" className="websites">
 																{" "}
 																{elem.link}
@@ -102,17 +127,19 @@ const Projects = () => {
 										);
 									})}
 									<div className="pagination">
-										{Array.from({ length: totalProfPages }, (_, index) => (
-											<div key={index}>
-												{totalProfPages > 1 ? (
-													<button className={`paginationButton ${curProfPage === index + 1 ? "active" : ""}`} onClick={() => handleProfPageChange(index + 1)}>
-														{index + 1}
-													</button>
-												) : (
-													<></>
-												)}
-											</div>
-										))}
+										{totalProfPages > 1 ? (
+											<>
+												<button className="paginationButton active" disabled={curProfPage <= 1} onClick={() => handleProfPageChange(curProfPage - 1)}>
+													{"<"}
+												</button>
+												<button className="paginationButton">{`Page ${curProfPage}/${totalProfPages}`}</button>
+												<button className="paginationButton active" disabled={curProfPage >= totalProfPages} onClick={() => handleProfPageChange(curProfPage + 1)}>
+													{">"}
+												</button>
+											</>
+										) : (
+											<></>
+										)}
 									</div>
 								</div>
 							</div>
@@ -120,7 +147,7 @@ const Projects = () => {
 
 						<div className="col-2">
 							<div className="homeComponent">
-								<div className="homeComponentHeading">PERSONAL PROJECTS</div>
+								<div className="homeComponentHeading">GAMES</div>
 								<div className="homeXP">
 									{currentPersonals.map((elem) => {
 										return (
@@ -128,20 +155,45 @@ const Projects = () => {
 												<img src={elem.logo} alt="Not Found" className="homeXPimg" />
 												<div>
 													<div className="homeAcadHeading">{elem.name}</div>
-													<div className="homeAcadSubContent" style={{ marginTop: "1rem" }}>
+													<div
+														className="homeAcadSubContent"
+														style={{
+															marginTop: "1rem",
+														}}
+													>
 														{elem.desc}
 													</div>
-													<div className="homeAcadSubContent" style={{ marginTop: "1rem" }}>
+													<div
+														className="homeAcadSubContent"
+														style={{
+															marginTop: "1rem",
+														}}
+													>
 														Languages:{" "}
-														<ul style={{ marginLeft: "1.5rem" }}>
+														<ul
+															style={{
+																marginLeft: "1.5rem",
+															}}
+														>
 															{Object.values(elem.lang).map((lang) => {
 																return <li key={lang}>{lang}</li>;
 															})}
 														</ul>
 													</div>
 													{elem.link !== "" ? (
-														<div className="homeAcadSubContent" style={{ marginTop: "1rem" }}>
-															<img src={Site} alt="" style={{ width: "1.5rem" }} />
+														<div
+															className="homeAcadSubContent"
+															style={{
+																marginTop: "1rem",
+															}}
+														>
+															<img
+																src={Site}
+																alt=""
+																style={{
+																	width: "1.5rem",
+																}}
+															/>
 															<Link to={elem.link} target="_blank" className="websites">
 																{" "}
 																{elem.link}
@@ -155,17 +207,19 @@ const Projects = () => {
 										);
 									})}
 									<div className="pagination">
-										{Array.from({ length: totalPersonalPages }, (_, index) => (
-											<div key={index}>
-												{totalPersonalPages > 1 ? (
-													<button className={`paginationButton ${curPersonalPage === index + 1 ? "active" : ""}`} onClick={() => handlePersonalPageChange(index + 1)}>
-														{index + 1}
-													</button>
-												) : (
-													<></>
-												)}
-											</div>
-										))}
+										{totalPersonalPages > 1 ? (
+											<>
+												<button className="paginationButton active" disabled={curPersonalPage <= 1} onClick={() => handlePersonalPageChange(curPersonalPage - 1)}>
+													{"<"}
+												</button>
+												<button className="paginationButton">{`Page ${curPersonalPage}/${totalPersonalPages}`}</button>
+												<button className="paginationButton active" disabled={curPersonalPage >= totalPersonalPages} onClick={() => handlePersonalPageChange(curPersonalPage + 1)}>
+													{">"}
+												</button>
+											</>
+										) : (
+											<></>
+										)}
 									</div>
 								</div>
 							</div>

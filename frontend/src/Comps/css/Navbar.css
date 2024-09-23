@@ -12,9 +12,16 @@
 	list-style-type: none;
 	display: flex;
 	justify-content: center;
+
+	flex-direction: column;
+
+	& .navUL {
+		flex-direction: row;
+	}
 }
 
 .navCurPage {
+	list-style-type: none;
 	display: inline-flex;
 	align-items: center;
 	/* justify-content: center; */
@@ -42,11 +49,10 @@
 
 .navItems {
 	list-style-type: none;
-	position: absolute;
+	/* position: absolute;
 	width: 100%;
 	top: 50%;
-	/* left: 50%; */
-	transform: translate(0%, -50%);
+	transform: translate(0%, -50%); */
 }
 
 .nameNavItems {

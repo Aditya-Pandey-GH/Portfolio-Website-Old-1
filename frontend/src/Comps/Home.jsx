@@ -8,15 +8,16 @@ const Home = () => {
 	window.localStorage.setItem("page", 0);
 
 	const [Acads, setAcads] = useState({});
-	const [XP, setXP] = useState({});
+	const [Welfares, setWelfares] = useState({});
+	// const [XP, setXP] = useState({});
 
 	const fetchAcad = async () => {
 		setAcads(JSON.parse(window.localStorage.getItem("acadData ")));
 	}; // Fetch the academic details of the user (here, Aditya Pandey)
 
-	const fetchXP = async () => {
-		setXP(JSON.parse(window.localStorage.getItem("XPData ")));
-	}; // Fetch the experience details of the user (here, Aditya Pandey)
+	// const fetchXP = async () => {
+	// 	setXP(JSON.parse(window.localStorage.getItem("XPData ")));
+	// }; // Fetch the experience details of the user (here, Aditya Pandey)
 
 	// const fetchAcad = async () => {
 	// 	let acadData = await axios.get("/api/acads");
@@ -29,20 +30,19 @@ const Home = () => {
 
 	useEffect(() => {
 		fetchAcad();
-		fetchXP();
+		// fetchXP();
 	}, []);
-
-	// PAGINATION XP STARTS
-	const [curXPPage, setCurXPPage] = useState(1);
-	const xpsPerPage = 6;
-	const lastXPIndex = curXPPage * xpsPerPage;
-	const firstXPIndex = lastXPIndex - xpsPerPage;
-	const currentXPs = Object.values(XP).slice(firstXPIndex, lastXPIndex);
-	const totalXPPages = Math.ceil(Object.values(XP).length / xpsPerPage);
-	const handleXPPageChange = (pageNumber) => {
-		setCurXPPage(pageNumber);
-	};
-	// PAGINATION XP ENDS
+	// // PAGINATION XP STARTS
+	// const [curXPPage, setCurXPPage] = useState(1);
+	// const xpsPerPage = 6;
+	// const lastXPIndex = curXPPage * xpsPerPage;
+	// const firstXPIndex = lastXPIndex - xpsPerPage;
+	// const currentXPs = Object.values(XP).slice(firstXPIndex, lastXPIndex);
+	// const totalXPPages = Math.ceil(Object.values(XP).length / xpsPerPage);
+	// const handleXPPageChange = (pageNumber) => {
+	// 	setCurXPPage(pageNumber);
+	// };
+	// // PAGINATION XP ENDS
 
 	return (
 		<>
@@ -54,6 +54,16 @@ const Home = () => {
 							<IntroComponent />
 
 							<div className="homeComponent">
+								<div className="homeComponentHeading">WELCOME 👋</div>
+								<div className="homeWelfareContent">
+									<ul className="homeWelfareSubContent" style={{ flexDirection: "column", marginLeft: "1rem" }}>
+										<li>Hello user. I am Aditya Pandey👋, and I welcome you to my website.</li>
+										<li>I am a BCA graduate, and have the knowledge of making web apps.</li>
+										<li>Explore this website to know more about me.</li>
+									</ul>
+								</div>
+							</div>
+							{/* <div className="homeComponent">
 								<div className="homeComponentHeading">EDUCATION</div>
 								<div className="xpScroll">
 									{Object.values(Acads).map((elem) => {
@@ -70,11 +80,11 @@ const Home = () => {
 										);
 									})}
 								</div>
-							</div>
+							</div> */}
 						</div>
 
 						<div className="col-2">
-							<div className="homeComponent">
+							{/* <div className="homeComponent">
 								<div className="homeComponentHeading">EXPERIENCE</div>
 								<div className="homeXP xpScroll">
 									{currentXPs.map((elem) => {
@@ -100,18 +110,39 @@ const Home = () => {
 										);
 									})}
 									<div className="pagination">
-										{Array.from({ length: totalXPPages }, (_, index) => (
-											<div key={index}>
-												{totalXPPages > 1 ? (
-													<button className={`paginationButton ${curXPPage === index + 1 ? "active" : ""}`} onClick={() => handleXPPageChange(index + 1)}>
-														{index + 1}
-													</button>
-												) : (
-													<></>
-												)}
-											</div>
-										))}
+										{totalXPPages > 1 ? (
+											<>
+												<button className="paginationButton active" disabled={curXPPage <= 1} onClick={() => handleXPPageChange(curXPPage - 1)}>
+													{"<"}
+												</button>
+												<button className="paginationButton">{`Page ${curXPPage}/${totalXPPages}`}</button>
+												<button className="paginationButton active" disabled={curXPPage >= totalXPPages} onClick={() => handleXPPageChange(curXPPage + 1)}>
+													{">"}
+												</button>
+											</>
+										) : (
+											<></>
+										)}
 									</div>
+								</div>
+							</div> */}
+
+							<div className="homeComponent">
+								<div className="homeComponentHeading">EDUCATION</div>
+								<div className="xpScroll">
+									{Object.values(Acads).map((elem) => {
+										return (
+											<div key={elem.id} className="homeAcadContent">
+												<div className="homeAcadHeading"> {elem.name} </div>
+												<div className="homeAcadSubContent">
+													{elem.start} - {elem.end}
+												</div>
+												<div className="homeAcadSubContent">{elem.school}</div>
+												<div className="homeAcadSubContent">{elem.location}</div>
+												<div className="homeAcadSubContent">{elem.board}</div>
+											</div>
+										);
+									})}
 								</div>
 							</div>
 						</div>

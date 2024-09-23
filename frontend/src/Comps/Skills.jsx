@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import axios from "axios";
 
 import Navbar from "./Navbar";
 import IntroComponent from "./IntroComponent";
@@ -104,17 +103,19 @@ const Skills = () => {
 										);
 									})}
 									<div className="pagination">
-										{Array.from({ length: totalTechPages }, (_, index) => (
-											<div key={index}>
-												{totalTechPages > 1 ? (
-													<button className={`paginationButton ${curTechPage === index + 1 ? "active" : ""}`} onClick={() => handleTechPageChange(index + 1)}>
-														{index + 1}
-													</button>
-												) : (
-													<></>
-												)}
-											</div>
-										))}
+										{totalTechPages > 1 ? (
+											<>
+												<button className="paginationButton active" disabled={curTechPage <= 1} onClick={() => handleTechPageChange(curTechPage - 1)}>
+													{"<"}
+												</button>
+												<button className="paginationButton">{`Page ${curTechPage}/${totalTechPages}`}</button>
+												<button className="paginationButton active" disabled={curTechPage >= totalTechPages} onClick={() => handleTechPageChange(curTechPage + 1)}>
+													{">"}
+												</button>
+											</>
+										) : (
+											<></>
+										)}
 									</div>
 								</div>
 							</div>
@@ -128,21 +129,10 @@ const Skills = () => {
 										return (
 											<div key={elem.id} className="homeXPContent">
 												<img src={elem.logo} alt="Not Found" className="homeXPimg" />
-												{/* <div className='timeline'>
-														<svg xmlns="http://www.w3.org/2000/svg" fill="#ffc700" viewBox="0 0 32 32">
-															<circle cx="16" cy="16" r="10" stroke="#646464" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
-														</svg>
-													</div> */}
 												<div style={{ width: "100%", margin: "auto" }}>
 													<div className="homeAcadHeading">{elem.title}</div>
 													<div className="homeAcadSubContent skillProgressBar">
-														<motion.div
-															initial={{ width: 0 }}
-															animate={{ width: elem.skill + "%" }}
-															transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
-															className="skillProgress"
-															style={{ backgroundColor: Color(elem.skill) }}
-														>
+														<motion.div initial={{ width: 0 }} animate={{ width: elem.skill + "%" }} transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }} className="skillProgress" style={{ backgroundColor: Color(elem.skill) }}>
 															{elem.skill + "%"}
 														</motion.div>
 													</div>
@@ -151,17 +141,19 @@ const Skills = () => {
 										);
 									})}
 									<div className="pagination">
-										{Array.from({ length: totalLangPages }, (_, index) => (
-											<div key={index}>
-												{totalLangPages > 1 ? (
-													<button className={`paginationButton ${curLangPage === index + 1 ? "active" : ""}`} onClick={() => handleLangPageChange(index + 1)}>
-														{index + 1}
-													</button>
-												) : (
-													<></>
-												)}
-											</div>
-										))}
+										{totalLangPages > 1 ? (
+											<>
+												<button className="paginationButton active" disabled={curLangPage <= 1} onClick={() => handleLangPageChange(curLangPage - 1)}>
+													{"<"}
+												</button>
+												<button className="paginationButton">{`Page ${curLangPage}/${totalLangPages}`}</button>
+												<button className="paginationButton active" disabled={curLangPage >= totalLangPages} onClick={() => handleLangPageChange(curLangPage + 1)}>
+													{">"}
+												</button>
+											</>
+										) : (
+											<></>
+										)}
 									</div>
 								</div>
 							</div>
@@ -180,13 +172,7 @@ const Skills = () => {
 												<div style={{ width: "100%", margin: "auto" }}>
 													<div className="homeAcadHeading">{elem.title}</div>
 													<div className="homeAcadSubContent skillProgressBar">
-														<motion.div
-															initial={{ width: 0 }}
-															animate={{ width: elem.skill + "%" }}
-															transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
-															className="skillProgress"
-															style={{ backgroundColor: Color(elem.skill) }}
-														>
+														<motion.div initial={{ width: 0 }} animate={{ width: elem.skill + "%" }} transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }} className="skillProgress" style={{ backgroundColor: Color(elem.skill) }}>
 															{elem.skill + "%"}
 														</motion.div>
 													</div>

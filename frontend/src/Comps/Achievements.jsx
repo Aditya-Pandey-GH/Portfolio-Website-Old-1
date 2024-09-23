@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 import Navbar from "./Navbar";
 import IntroComponent from "./IntroComponent";
@@ -11,6 +10,7 @@ const Achievements = () => {
 
 	const [Welfares, setWelfares] = useState({});
 	const [Certs, setCerts] = useState({});
+	const [XP, setXP] = useState({});
 	const [Achs, setAchs] = useState({});
 
 	const fetchWelfare = async () => {
@@ -20,6 +20,10 @@ const Achievements = () => {
 	const fetchCert = async () => {
 		setCerts(JSON.parse(window.localStorage.getItem("certData ")));
 	}; // Fetch the details of the certificates recieved by the user (here, Aditya Pandey)
+
+	const fetchXP = async () => {
+		setXP(JSON.parse(window.localStorage.getItem("XPData ")));
+	}; // Fetch the experience details of the user (here, Aditya Pandey)
 
 	const fetchAch = async () => {
 		setAchs(JSON.parse(window.localStorage.getItem("achData ")));
@@ -33,6 +37,10 @@ const Achievements = () => {
 	// 	let certData = await axios.get("/api/certs");
 	// 	setCerts(certData.data);
 	// }; // Fetch the details of the certificates recieved by the user (here, Aditya Pandey)
+	// const fetchXP = async () => {
+	// 	let XPData = await axios.get("/api/xps");
+	// 	setXP(XPData.data);
+	// }; // Fetch the experience details of the user (here, Aditya Pandey)
 	// const fetchAch = async () => {
 	// 	let achData = await axios.get("/api/achs");
 	// 	setAchs(achData.data);
@@ -41,6 +49,7 @@ const Achievements = () => {
 	useEffect(() => {
 		fetchWelfare();
 		fetchCert();
+		fetchXP();
 		fetchAch();
 	}, []);
 
@@ -55,9 +64,33 @@ const Achievements = () => {
 		setCurWelfarePage(pageNumber);
 	};
 	// PAGINATION WELFARE ENDS
+	// PAGINATION CERTS STARTS
+	const [curCertPage, setCurCertPage] = useState(1);
+	const CertsPerPage = 1;
+	const lastCertIndex = curCertPage * CertsPerPage;
+	const firstCertIndex = lastCertIndex - CertsPerPage;
+	const currentCerts = Object.values(Certs).slice(firstCertIndex, lastCertIndex);
+	const totalCertPages = Math.ceil(Object.values(Certs).length / CertsPerPage);
+	const handleCertPageChange = (pageNumber) => {
+		setCurCertPage(pageNumber);
+	};
+	// PAGINATION CERTS ENDS
+	// PAGINATION XP STARTS
+	const [curXPPage, setCurXPPage] = useState(1);
+	// const xpsPerPage = 6;
+	const xpsPerPage = 5;
+	const lastXPIndex = curXPPage * xpsPerPage;
+	const firstXPIndex = lastXPIndex - xpsPerPage;
+	const currentXPs = Object.values(XP).slice(firstXPIndex, lastXPIndex);
+	const totalXPPages = Math.ceil(Object.values(XP).length / xpsPerPage);
+	const handleXPPageChange = (pageNumber) => {
+		setCurXPPage(pageNumber);
+	};
+	// PAGINATION XP ENDS
 	// PAGINATION ACHS STARTS
 	const [curAchPage, setCurAchPage] = useState(1);
-	const AchsPerPage = 8;
+	// const AchsPerPage = 9;
+	const AchsPerPage = 5;
 	const lastAchIndex = curAchPage * AchsPerPage;
 	const firstAchIndex = lastAchIndex - AchsPerPage;
 	const currentAchs = Object.values(Achs).slice(firstAchIndex, lastAchIndex);
@@ -95,24 +128,57 @@ const Achievements = () => {
 									);
 								})}
 								<div className="pagination">
-									{Array.from({ length: totalWelfarePages }, (_, index) => (
-										<div key={index}>
-											{totalWelfarePages > 1 ? (
-												<button className={`paginationButton ${curWelfarePage === index + 1 ? "active" : ""}`} onClick={() => handleWelfarePageChange(index + 1)}>
-													{index + 1}
-												</button>
-											) : (
-												<></>
-											)}
-										</div>
-									))}
+									{totalWelfarePages > 1 ? (
+										<>
+											<button className="paginationButton active" disabled={curWelfarePage <= 1} onClick={() => handleWelfarePageChange(curWelfarePage - 1)}>
+												{"<"}
+											</button>
+											<button className="paginationButton">{`Page ${curWelfarePage}/${totalWelfarePages}`}</button>
+											<button className="paginationButton active" disabled={curWelfarePage >= totalWelfarePages} onClick={() => handleWelfarePageChange(curWelfarePage + 1)}>
+												{">"}
+											</button>
+										</>
+									) : (
+										<></>
+									)}
 								</div>
 							</div>
-
 							<div className="homeComponent scrollableDiv">
 								<div className="homeComponentHeading">CERTIFICATES</div>
 								<div className="scrollableContent">
-									{Object.values(Certs).map((elem) => {
+									{currentCerts.map((elem) => {
+										return (
+											<div key={elem.id} className="homeWelfareContent">
+												<Link to={elem.preview} target="_blank" className="homeCertContent">
+													<img src={elem.logo} alt="Certificates" title="Click to view in high quality" className="scrollableImg" />
+												</Link>
+												{/* <div className="scrollableTitle">{elem.title}</div> */}
+												<div className="scrollableTitle">( {elem.title} )</div>
+												<div className="scrollableDesc">{elem.desc}</div>
+												<ul className="scrollableByOn">
+													<li>By: "{elem.by}"</li>
+													<li>On: "{elem.on}"</li>
+												</ul>
+											</div>
+										);
+									})}
+								</div>
+								<div className="pagination">
+									{totalCertPages > 1 ? (
+										<>
+											<button className="paginationButton active" disabled={curCertPage <= 1} onClick={() => handleCertPageChange(curCertPage - 1)}>
+												{"<"}
+											</button>
+											<button className="paginationButton">{`Page ${curCertPage}/${totalCertPages}`}</button>
+											<button className="paginationButton active" disabled={curCertPage >= totalCertPages} onClick={() => handleCertPageChange(curCertPage + 1)}>
+												{">"}
+											</button>
+										</>
+									) : (
+										<></>
+									)}
+								</div>
+								{/* {Object.values(Certs).map((elem) => {
 										return (
 											<div key={elem.id} className="homeWelfareContent" style={{ padding: "0 0.5rem 1rem 0.5rem" }}>
 												<Link to={elem.preview} target="_blank">
@@ -120,12 +186,53 @@ const Achievements = () => {
 												</Link>
 											</div>
 										);
-									})}
-								</div>
+									})} */}
 							</div>
 						</div>
 
 						<div className="col-2">
+							<div className="homeComponent">
+								<div className="homeComponentHeading">EXPERIENCE</div>
+								<div className="homeXP xpScroll">
+									{currentXPs.map((elem) => {
+										// {Object.values(XP).map((elem) => {
+										return (
+											<div key={elem.id} className="homeXPContent">
+												<img src={elem.logo} alt="Not Found" className="homeXPimg" />
+												<div>
+													<div className="homeAcadHeading">{elem.name}</div>
+													<div className="homeAcadSubContent">Role: {elem.xp}</div>
+													{elem.to !== "" || elem.to ? (
+														<>
+															<div className="homeAcadSubContent">From: {elem.from}</div>
+															<div className="homeAcadSubContent">To: {elem.to}</div>
+														</>
+													) : (
+														<>
+															<div className="homeAcadSubContent">In: {elem.from}</div>
+														</>
+													)}
+												</div>
+											</div>
+										);
+									})}
+									<div className="pagination">
+										{totalXPPages > 1 ? (
+											<>
+												<button className="paginationButton active" disabled={curXPPage <= 1} onClick={() => handleXPPageChange(curXPPage - 1)}>
+													{"<"}
+												</button>
+												<button className="paginationButton">{`Page ${curXPPage}/${totalXPPages}`}</button>
+												<button className="paginationButton active" disabled={curXPPage >= totalXPPages} onClick={() => handleXPPageChange(curXPPage + 1)}>
+													{">"}
+												</button>
+											</>
+										) : (
+											<></>
+										)}
+									</div>
+								</div>
+							</div>
 							<div className="homeComponent">
 								<div className="homeComponentHeading">ACHIEVEMENTS</div>
 								<div className="homeXP">
@@ -146,17 +253,19 @@ const Achievements = () => {
 										);
 									})}
 									<div className="pagination">
-										{Array.from({ length: totalAchPages }, (_, index) => (
-											<div key={index}>
-												{totalAchPages > 1 ? (
-													<button className={`paginationButton ${curAchPage === index + 1 ? "active" : ""}`} onClick={() => handleAchPageChange(index + 1)}>
-														{index + 1}
-													</button>
-												) : (
-													<></>
-												)}
-											</div>
-										))}
+										{totalAchPages > 1 ? (
+											<>
+												<button className="paginationButton active" disabled={curAchPage <= 1} onClick={() => handleAchPageChange(curAchPage - 1)}>
+													{"<"}
+												</button>
+												<button className="paginationButton">{`Page ${curAchPage}/${totalAchPages}`}</button>
+												<button className="paginationButton active" disabled={curAchPage >= totalAchPages} onClick={() => handleAchPageChange(curAchPage + 1)}>
+													{">"}
+												</button>
+											</>
+										) : (
+											<></>
+										)}
 									</div>
 								</div>
 							</div>

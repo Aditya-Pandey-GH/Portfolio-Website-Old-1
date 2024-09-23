@@ -215,8 +215,13 @@
 	padding: 0.3rem 1rem;
 }
 
+.homeCertContent {
+	text-align: center !important;
+}
+
 .homeWelfareSubContent {
 	font-family: Iceberg, serif;
+	font-size: large;
 	/* margin-left: 2rem; */
 }
 
@@ -229,30 +234,63 @@
 	width: 1.5rem;
 }
 
-.scrollableDiv {
+/* .scrollableDiv {
 	overflow-y: hidden;
 	margin-bottom: 1rem;
 	max-height: 30rem;
-}
+} */
 
 .scrollableContent {
+	display: flex;
+
+	& .homeWelfareContent {
+		flex-direction: column;
+	}
+}
+
+.scrollableTitle {
+	font-family: Langar, serif;
+	font-size: larger;
+	margin: 1rem 0;
+	text-align: center;
+}
+
+.scrollableDesc,
+.scrollableByOn {
+	font-family: Iceberg, serif;
+	font-weight: 100;
+	font-size: large;
+	margin-bottom: 0.5rem;
+	text-align: justify;
+}
+
+.scrollableByOn {
+	margin-left: 1.5rem;
+}
+
+.scrollableImg {
+	max-width: 75%;
+	max-height: 30rem;
+}
+
+/* .scrollableContent {
 	overflow-x: auto;
 	display: flex;
 	flex-wrap: nowrap;
 	padding: 0rem;
-}
+} */
 
 /* .scrollableContent::-webkit-scrollbar {
 	width: 10px;
 } */
 
-.scrollableContent::-webkit-scrollbar-button {
+/* .scrollableContent::-webkit-scrollbar-button {
 	width: 10px;
-}
+} */
 
-.scrollableImg {
+/* .scrollableImg {
 	height: 20rem;
-}
+} */
 
 /* MEDIA QUERIES START */
 
@@ -266,6 +304,11 @@
 	.col-2 {
 		width: 100%;
 	}
+
+	/* .scrollableImg {
+		width: 50vw;
+		height: auto;
+	} */
 }
 
 @media screen and (max-width: 768px) {
@@ -303,6 +346,10 @@
 	.homeComponentHeading {
 		font-size: larger;
 	}
+
+	.homeWelfareSubContent {
+		font-size: medium;
+	}
 }
 
 @media screen and (max-width: 425px) {
@@ -333,8 +380,10 @@
 		margin: 0 0 1rem 0;
 	}
 
-	.scrollableImg {
-		height: 13rem;
+	.scrollableImg,
+	.scrollableImgPosters {
+		width: 60vw;
+		height: auto;
 	}
 
 	.homeAcadSubContent {
@@ -353,10 +402,6 @@
 	/* .homeDetailsCV {
 		font-size: smaller;
 	} */
-
-	.scrollableImg {
-		height: 10rem;
-	}
 }
 
 /* MEDIA QUERIES END */
