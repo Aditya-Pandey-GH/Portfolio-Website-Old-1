@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import IntroComponent from "./IntroComponent";
 
+import Oct122 from "../pdfs/October 2022.pdf";
+import Mar123 from "../pdfs/March 2023.pdf";
 import May123 from "../pdfs/May 2023.pdf";
 import Nov123 from "../pdfs/November 2023 (1).pdf";
 import Nov223 from "../pdfs/November 2023 (2).pdf";
@@ -18,12 +20,12 @@ const Gallery = () => {
 		{
 			id: "oct22 (1)",
 			title: "How 5G will transform India?",
-			link: "https://www.jimsindia.org/IT-Flash-Newsletter/IT-Flash-Oct-2022-Issue.pdf",
+			link: Oct122,
 		},
 		{
 			id: "mar23 (1)",
 			title: "The Era of AI Chatbots",
-			link: "https://www.jimsindia.org/IT-Flash-Newsletter/IT-Flash-Mar-2023-Issue.pdf",
+			link: Mar123,
 		},
 		{
 			id: "may23 (1)",
