@@ -36,11 +36,12 @@ const Connect = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		alert("Please wait while the mail is being sent.");
 
 		axios
 			.post("/api/send-email", formData)
 			.then((res) => {
-				console.log("Email sent successfully");
+				alert("Email sent successfully");
 			})
 			.catch((error) => {
 				console.error("There was an error sending the email!", error);
