@@ -5,7 +5,7 @@ const DB = require("../models/DB");
 
 app.get("/", (req, res) => {
 	DB.find()
-		.sort({ _id: 1 })
+		.sort({ skill: -1 })
 		.then((db) => {
 			res.send(db);
 		})
