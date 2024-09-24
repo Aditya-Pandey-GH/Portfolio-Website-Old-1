@@ -1,0 +1,26 @@
+.skillProgressBar {
+	background-color: #212936;
+	margin-bottom: 0rem;
+	/* text-align: center; */
+	border-radius: 1rem;
+	/* padding: 0.25rem; */
+}
+
+.skillProgress {
+	border-radius: 1rem;
+	font-family: Khand, serif;
+	text-align: center;
+	/* font-size: larger; */
+	/* color: white; */
+}
+
+.loadingProgressBar {
+	margin-top: 1rem;
+	background-color: #212936;
+}
+
+.loadingProgress {
+	border-radius: 1rem;
+	background-color: #ffc700;
+	height: 0.25rem;
+}

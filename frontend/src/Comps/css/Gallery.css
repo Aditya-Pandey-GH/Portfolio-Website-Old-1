@@ -1,0 +1,53 @@
+/* .scrollableImgGallery {
+	max-width: 75%;
+	max-height: 25rem;
+} */
+
+.scrollableImgPosters {
+	max-width: 75%;
+	max-height: 30rem;
+}
+
+.scrollableImgPosters:hover {
+	opacity: 80%;
+}
+
+.scrollableImgThumbs {
+	max-width: 75%;
+	max-height: 25rem;
+}
+
+.scrollableImgThumbs:hover {
+	opacity: 80%;
+}
+
+.newsLetters {
+	margin-left: 2rem;
+	font-family: Iceberg, serif;
+	font-size: large;
+
+	& li .homeNewsLettersContent {
+		display: flex;
+		flex-direction: row;
+		text-align: justify;
+		height: fit-content;
+		/* border-radius: 1rem; */
+		margin: auto;
+		margin-top: 1rem;
+		/* margin-left: 2rem; */
+		padding: 0rem 1rem;
+		/* margin-bottom: 0.5rem; */
+		transition: 0.15s ease-in;
+	}
+}
+
+.newsLetters .homeWelfareContent:hover {
+	color: #c5c5c5;
+	/* opacity: 80%; */
+}
+
+@media screen and (max-width: 425px) {
+	.newsLetters {
+		font-size: medium;
+	}
+}

@@ -1,0 +1,24 @@
+.pagination {
+	display: flex;
+	justify-content: center;
+	margin-top: 1rem;
+}
+
+.paginationButton {
+	font-family: Langar, serif;
+	color: #1e2127;
+	background: #ffffff;
+	border: none;
+	border-radius: 0.2rem;
+	padding: 10px 15px;
+	margin: 0 5px;
+}
+
+.paginationButton.active {
+	background-color: #ffc700;
+	cursor: pointer;
+}
+
+.paginationButton.active:hover {
+	opacity: 75%;
+}
