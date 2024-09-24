@@ -5,7 +5,7 @@ const Lang = require("../models/Lang");
 
 app.get("/", (req, res) => {
 	Lang.find()
-		.sort({ skill: 1 })
+		.sort({ skill: -1 })
 		.then((lang) => {
 			res.send(lang);
 		})
