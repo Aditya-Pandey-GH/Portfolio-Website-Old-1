@@ -1,15 +1,15 @@
-const express = require('express');
+const express = require("express");
 const app = express.Router();
 
-const Prof = require('../models/Prof');
+const Prof = require("../models/Prof");
 
-app.get('/', (req, res) => {
-
+app.get("/", (req, res) => {
 	Prof.find()
-		.then(prof => {
+		.sort({ _id: 1 })
+		.then((prof) => {
 			res.send(prof);
 		})
-		.catch(err => res.status(404).json({ nomenuitemsfound: 'No professional projects found' }));
+		.catch((err) => res.status(404).json({ nomenuitemsfound: "No professional projects found" }));
 });
 
 module.exports = app;

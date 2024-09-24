@@ -1,15 +1,15 @@
-const express = require('express');
+const express = require("express");
 const app = express.Router();
 
-const Cert = require('../models/Cert');
+const Cert = require("../models/Cert");
 
-app.get('/', (req, res) => {
-
+app.get("/", (req, res) => {
 	Cert.find()
-		.then(cert => {
+		.sort({ _id: 1 })
+		.then((cert) => {
 			res.send(cert);
 		})
-		.catch(err => res.status(404).json({ nomenuitemsfound: 'No certificates found' }));
+		.catch((err) => res.status(404).json({ nomenuitemsfound: "No certificates found" }));
 });
 
 module.exports = app;

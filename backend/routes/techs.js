@@ -1,15 +1,15 @@
-const express = require('express');
+const express = require("express");
 const app = express.Router();
 
-const Tech = require('../models/Tech');
+const Tech = require("../models/Tech");
 
-app.get('/', (req, res) => {
-
+app.get("/", (req, res) => {
 	Tech.find()
-		.then(tech => {
+		.sort({ _id: 1 })
+		.then((tech) => {
 			res.send(tech);
 		})
-		.catch(err => res.status(404).json({ nomenuitemsfound: 'No tech stack details found' }));
+		.catch((err) => res.status(404).json({ nomenuitemsfound: "No tech stack details found" }));
 });
 
 module.exports = app;

@@ -5,6 +5,7 @@ const Design = require("../models/Design");
 
 app.get("/", (req, res) => {
 	Design.find()
+		.sort({ _id: 1 })
 		.then((design) => {
 			res.send(design);
 		})

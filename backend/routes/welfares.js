@@ -1,15 +1,15 @@
-const express = require('express');
+const express = require("express");
 const app = express.Router();
 
-const Welfare = require('../models/Welfare');
+const Welfare = require("../models/Welfare");
 
-app.get('/', (req, res) => {
-
+app.get("/", (req, res) => {
 	Welfare.find()
-		.then(welfare => {
+		.sort({ _id: 1 })
+		.then((welfare) => {
 			res.send(welfare);
 		})
-		.catch(err => res.status(404).json({ nomenuitemsfound: 'No social welfare details found' }));
+		.catch((err) => res.status(404).json({ nomenuitemsfound: "No social welfare details found" }));
 });
 
 module.exports = app;
