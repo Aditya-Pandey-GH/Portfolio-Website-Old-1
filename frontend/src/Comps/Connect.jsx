@@ -39,7 +39,7 @@ const Connect = () => {
 		alert("Please wait while the mail is being sent.");
 
 		axios
-			.post("/api/send-email", formData)
+			.post(`${import.meta.env.VITE_SERVER_URL}/api/send-email`, formData)
 			.then((res) => {
 				alert("Email sent successfully");
 			})
