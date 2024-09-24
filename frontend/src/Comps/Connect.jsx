@@ -36,16 +36,15 @@ const Connect = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		alert("Please wait while the mail is being sent.");
-
-		axios
-			.post(`${import.meta.env.VITE_SERVER_URL}/api/send-email`, formData)
-			.then((res) => {
-				alert("Email sent successfully");
-			})
-			.catch((error) => {
-				console.error("There was an error sending the email!", error);
-			});
+		if (confirm("Confirm the information to continue:\n" + "\nEmail ID: " + formData.email + "\nName: " + formData.subject + "\nMessage:\n" + formData.message))
+			axios
+				.post(`${import.meta.env.VITE_SERVER_URL}/api/send-email`, formData)
+				.then((res) => {
+					alert("Email sent successfully");
+				})
+				.catch((error) => {
+					console.error("There was an error sending the email!", error);
+				});
 	};
 
 	return (
