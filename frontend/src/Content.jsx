@@ -8,7 +8,7 @@ import pageConnect from "./imgs/pages/connect.png";
 import PFP from "./imgs/pfp.jpg";
 
 import Java from "./imgs/langs+db/java.png";
-import CSharp from "./imgs/langs+db/csharp.png";
+import CSharp from "./imgs/langs+db/CSharp.png";
 import MySQL from "./imgs/langs+db/mysql.png";
 
 import certMERN from "./imgs/certs/mernStack.jpg";
