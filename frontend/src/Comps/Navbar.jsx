@@ -60,7 +60,7 @@ const Navbar = (pageName) => {
 
 	return (
 		<>
-			<div className="navContainer">
+			<div className="navContainer navItemsDiv">
 				<div className="navUL">
 					<ul className="navCurPage">
 						<li>
