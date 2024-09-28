@@ -30,6 +30,6 @@ dist-ssr
 
 
 # From Files
-Data-Bak.jsx
-*/imgs
-*/Comps/assets
+# Data-Bak.jsx
+# */imgs
+# */Comps/assets

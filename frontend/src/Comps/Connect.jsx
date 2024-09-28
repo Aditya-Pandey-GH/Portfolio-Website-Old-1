@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -10,15 +10,7 @@ import "./css/Connect.css";
 const Connect = () => {
 	window.localStorage.setItem("page", 5);
 
-	const [Socials, setSocials] = useState({});
-
-	const fetchSocial = async () => {
-		setSocials(JSON.parse(window.localStorage.getItem("socialData ")));
-	}; // Fetch the details of the social media accounts of the user (here, Aditya Pandey)
-
-	useEffect(() => {
-		fetchSocial();
-	}, []);
+	const Socials = JSON.parse(window.localStorage.getItem("socialData "));
 
 	const [formData, setFormData] = useState({
 		email: "",
@@ -63,19 +55,38 @@ const Connect = () => {
 									<div className="connectBox">
 										<div className="connectBoxImg">
 											<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 26.7117 4.53967 29.2974 5.51747 31.6554C6.02232 32.8729 6.64396 34.0297 7.36843 35.1119C7.61157 35.4751 7.15543 37.7711 6 42C10.2289 40.8446 12.5249 40.3884 12.8881 40.6316C13.9703 41.356 15.1271 41.9777 16.3446 42.4825C18.7026 43.4603 21.2883 44 24 44Z" fill="white" stroke="#212936" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+												<path
+													d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 26.7117 4.53967 29.2974 5.51747 31.6554C6.02232 32.8729 6.64396 34.0297 7.36843 35.1119C7.61157 35.4751 7.15543 37.7711 6 42C10.2289 40.8446 12.5249 40.3884 12.8881 40.6316C13.9703 41.356 15.1271 41.9777 16.3446 42.4825C18.7026 43.4603 21.2883 44 24 44Z"
+													fill="white"
+													stroke="#212936"
+													strokeWidth="2"
+													strokeLinecap="round"
+													strokeLinejoin="round"
+												/>
 												<path d="M16.6042 19.82H33.3835" stroke="#313a4b" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
 												<path d="M21.8465 15.7378L18.9328 32.2622" stroke="#313a4b" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
 												<path d="M28.8465 15.7378L25.9328 32.2622" stroke="#313a4b" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
 												<path d="M14.6042 28H31.3835" stroke="#313a4b" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
 											</svg>
 										</div>
-										<input id="subject" name="subject" type="text" placeholder="Name" autoComplete="off" value={formData.subject} onChange={handleChange} className="connectBoxIn" />
+										<input
+											id="subject"
+											name="subject"
+											type="text"
+											placeholder="Name"
+											autoComplete="off"
+											value={formData.subject}
+											onChange={handleChange}
+											className="connectBoxIn"
+										/>
 									</div>
 									<div className="connectBox">
 										<div className="connectBoxImg">
 											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-												<path d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z" fill="#FFF" />
+												<path
+													d="M399 384.2C376.9 345.8 335.4 320 288 320H224c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"
+													fill="#FFF"
+												/>
 											</svg>
 										</div>
 										<input id="email" name="email" type="email" placeholder="Email ID" autoComplete="off" value={formData.email} onChange={handleChange} className="connectBoxIn" />
@@ -96,7 +107,16 @@ const Connect = () => {
 												/>
 											</svg>
 										</div>
-										<textarea id="message" name="message" type="text" placeholder="Message" autoComplete="off" value={formData.message} onChange={handleChange} className="connectBoxIn connectBoxTextArea" />
+										<textarea
+											id="message"
+											name="message"
+											type="text"
+											placeholder="Message"
+											autoComplete="off"
+											value={formData.message}
+											onChange={handleChange}
+											className="connectBoxIn connectBoxTextArea"
+										/>
 									</div>
 
 									<button id="sendMailToAdi" className="sendMailButton">

@@ -1,7 +1,6 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
@@ -18,65 +17,6 @@ app.use(
 );
 app.use(bodyParser.json());
 
-// MongoDB Backend
-mongoose
-	.connect(process.env.MONGO_URI)
-	.then(() => {
-		console.log("MongoDB connected successfully to Portfolio Database.");
-	})
-	.catch((err) => {
-		console.log(err);
-	});
-
-const users = require("./routes/users");
-app.use("/api/users", users);
-
-const acads = require("./routes/acads");
-app.use("/api/acads", acads);
-
-const xps = require("./routes/xps");
-app.use("/api/xps", xps);
-
-const techs = require("./routes/techs");
-app.use("/api/techs", techs);
-
-const langs = require("./routes/langs");
-app.use("/api/langs", langs);
-
-const dbs = require("./routes/dbs");
-app.use("/api/dbs", dbs);
-
-const welfares = require("./routes/welfares");
-app.use("/api/welfares", welfares);
-
-const certs = require("./routes/certs");
-app.use("/api/certs", certs);
-
-const achs = require("./routes/achs");
-app.use("/api/achs", achs);
-
-const personals = require("./routes/personals");
-app.use("/api/personals", personals);
-
-const profs = require("./routes/profs");
-app.use("/api/profs", profs);
-
-const posters = require("./routes/posters");
-app.use("/api/posters", posters);
-
-const thumbs = require("./routes/thumbs");
-app.use("/api/thumbs", thumbs);
-
-const designs = require("./routes/designs");
-app.use("/api/designs", designs);
-
-const socials = require("./routes/socials");
-app.use("/api/socials", socials);
-
-// --------------------------------------------------------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------------------------------------------------
-
-// Email Backend
 const transporter = nodemailer.createTransport({
 	service: "gmail",
 	host: "smtp.gmail.com",

@@ -1,70 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
 import Navbar from "./Navbar";
 import IntroComponent from "./IntroComponent";
 
-import Oct122 from "../pdfs/October 2022.pdf";
-import Mar123 from "../pdfs/March 2023.pdf";
-import May123 from "../pdfs/May 2023.pdf";
-import Nov123 from "../pdfs/November 2023 (1).pdf";
-import Nov223 from "../pdfs/November 2023 (2).pdf";
-
 import "./css/Gallery.css";
 
 const Gallery = () => {
 	window.localStorage.setItem("page", 4);
 
-	const newsLetters = [
-		{
-			id: "oct22 (1)",
-			title: "How 5G will transform India?",
-			link: Oct122,
-		},
-		{
-			id: "mar23 (1)",
-			title: "The Era of AI Chatbots",
-			link: Mar123,
-		},
-		{
-			id: "may23 (1)",
-			title: "ChatGPT: Revolutionizing Conversational AI",
-			link: May123,
-		},
-		{
-			id: "nov23 (1)",
-			title: "Data, Data Everywhere Part 1",
-			link: Nov123,
-		},
-		{
-			id: "nov23 (2)",
-			title: "Data, Data Everywhere Part 2",
-			link: Nov223,
-		},
-	];
+	const newsLetters = JSON.parse(window.localStorage.getItem("newsletterData "));
 
-	const [Posters, setPosters] = useState({});
-	const [Thumbs, setThumbs] = useState({});
-	const [Designs, setDesigns] = useState({});
-
-	const fetchPoster = async () => {
-		setPosters(JSON.parse(window.localStorage.getItem("posterData ")));
-	}; // Fetch the details of the posters made by the user (here, Aditya Pandey)
-
-	const fetchThumb = async () => {
-		setThumbs(JSON.parse(window.localStorage.getItem("thumbData ")));
-	}; // Fetch the details of the thumbnails made by the user (here, Aditya Pandey)
-
-	const fetchDesign = async () => {
-		setDesigns(JSON.parse(window.localStorage.getItem("designData ")));
-	}; // Fetch the details of other designs made by the user (here, Aditya Pandey)
-
-	useEffect(() => {
-		fetchPoster();
-		fetchThumb();
-		fetchDesign();
-	}, []);
+	const Posters = JSON.parse(window.localStorage.getItem("posterData "));
+	const Thumbs = JSON.parse(window.localStorage.getItem("thumbData "));
+	const Designs = JSON.parse(window.localStorage.getItem("designData "));
 
 	// PAGINATION POSTERS STARTS
 	const [curPosterPage, setCurPosterPage] = useState(1);

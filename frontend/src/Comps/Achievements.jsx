@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -8,50 +8,10 @@ import IntroComponent from "./IntroComponent";
 const Achievements = () => {
 	window.localStorage.setItem("page", 2);
 
-	const [Welfares, setWelfares] = useState({});
-	const [Certs, setCerts] = useState({});
-	const [XP, setXP] = useState({});
-	const [Achs, setAchs] = useState({});
-
-	const fetchWelfare = async () => {
-		setWelfares(JSON.parse(window.localStorage.getItem("welfareData ")));
-	}; // Fetch the details of the social welfare works done by the user (here, Aditya Pandey)
-
-	const fetchCert = async () => {
-		setCerts(JSON.parse(window.localStorage.getItem("certData ")));
-	}; // Fetch the details of the certificates recieved by the user (here, Aditya Pandey)
-
-	const fetchXP = async () => {
-		setXP(JSON.parse(window.localStorage.getItem("XPData ")));
-	}; // Fetch the experience details of the user (here, Aditya Pandey)
-
-	const fetchAch = async () => {
-		setAchs(JSON.parse(window.localStorage.getItem("achData ")));
-	}; // Fetch the details of the achievements of the user (here, Aditya Pandey)
-
-	// const fetchWelfare = async () => {
-	// 	let welfareData = await axios.get("/api/welfares");
-	// 	setWelfares(welfareData.data);
-	// }; // Fetch the details of the social welfare works done by the user (here, Aditya Pandey)
-	// const fetchCert = async () => {
-	// 	let certData = await axios.get("/api/certs");
-	// 	setCerts(certData.data);
-	// }; // Fetch the details of the certificates recieved by the user (here, Aditya Pandey)
-	// const fetchXP = async () => {
-	// 	let XPData = await axios.get("/api/xps");
-	// 	setXP(XPData.data);
-	// }; // Fetch the experience details of the user (here, Aditya Pandey)
-	// const fetchAch = async () => {
-	// 	let achData = await axios.get("/api/achs");
-	// 	setAchs(achData.data);
-	// }; // Fetch the details of the achievements of the user (here, Aditya Pandey)
-
-	useEffect(() => {
-		fetchWelfare();
-		fetchCert();
-		fetchXP();
-		fetchAch();
-	}, []);
+	const Welfares = JSON.parse(window.localStorage.getItem("welfareData "));
+	const Certs = JSON.parse(window.localStorage.getItem("certData "));
+	const XP = JSON.parse(window.localStorage.getItem("XPData "));
+	const Achs = JSON.parse(window.localStorage.getItem("achData "));
 
 	// PAGINATION WELFARE STARTS
 	const [curWelfarePage, setCurWelfarePage] = useState(1);
@@ -149,10 +109,9 @@ const Achievements = () => {
 									{currentCerts.map((elem) => {
 										return (
 											<div key={elem.id} className="homeWelfareContent">
-												<Link to={elem.preview} target="_blank" className="homeCertContent">
+												<Link to={elem.logo} target="_blank" className="homeCertContent">
 													<img src={elem.logo} alt="Certificates" title="Click to view in high quality" className="scrollableImg" />
 												</Link>
-												{/* <div className="scrollableTitle">{elem.title}</div> */}
 												<div className="scrollableTitle">( {elem.title} )</div>
 												<div className="scrollableDesc">{elem.desc}</div>
 												<ul className="scrollableByOn">
@@ -178,15 +137,6 @@ const Achievements = () => {
 										<></>
 									)}
 								</div>
-								{/* {Object.values(Certs).map((elem) => {
-										return (
-											<div key={elem.id} className="homeWelfareContent" style={{ padding: "0 0.5rem 1rem 0.5rem" }}>
-												<Link to={elem.preview} target="_blank">
-													<img src={elem.logo} alt="MERN Training Certificate Missing" className="scrollableImg" />
-												</Link>
-											</div>
-										);
-									})} */}
 							</div>
 						</div>
 
@@ -195,7 +145,6 @@ const Achievements = () => {
 								<div className="homeComponentHeading">EXPERIENCE</div>
 								<div className="homeXP xpScroll">
 									{currentXPs.map((elem) => {
-										// {Object.values(XP).map((elem) => {
 										return (
 											<div key={elem.id} className="homeXPContent">
 												<img src={elem.logo} alt="Not Found" className="homeXPimg" />

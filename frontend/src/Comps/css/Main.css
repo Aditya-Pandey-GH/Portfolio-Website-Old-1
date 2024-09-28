@@ -318,7 +318,7 @@
 
 @media screen and (max-width: 1024px) {
 	.homeContainer {
-		padding: 2rem;
+		padding: 2rem 2rem 0 2rem;
 		display: block;
 	}
 
@@ -368,7 +368,7 @@
 	}
 
 	.homeContainer {
-		padding: 1rem;
+		padding: 1rem 1rem 0 1rem;
 	}
 
 	.homeComponentHeading {

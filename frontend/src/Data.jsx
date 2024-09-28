@@ -1,162 +1,45 @@
-// The App file for the Portfolio website of Aditya Pandey
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import axios from "axios";
 import App from "./App";
+import Content from "./Content";
 
 const Data = () => {
 	const [loading, setLoading] = useState(true);
-	const [progress, setProgress] = useState(0.8);
-	const totalProgress = 15;
-	// const [Data, setData] = useState("");
-	const baseURL = import.meta.env.VITE_SERVER_URL;
 
-	// const [Acads, setAcads] = useState({});
-	// const [XP, setXP] = useState({});
-	// const [Techs, setTechs] = useState({});
-	// const [Langs, setLangs] = useState({});
-	// const [DBs, setDBs] = useState({});
-	// const [Welfares, setWelfares] = useState({});
-	// const [Certs, setCerts] = useState({});
-	// const [Achs, setAchs] = useState({});
-	// const [Personals, setPersonals] = useState({});
-	// const [Profs, setProfs] = useState({});
-	// const [Socials, setSocials] = useState({});
-
-	const fetchUser = async () => {
-		const userData = await axios.get(baseURL + "/api/users");
-		setProgress((prev) => prev + 1);
-		// setData(userData.data);
-		window.localStorage.setItem("userData ", JSON.stringify(userData.data));
-	}; // Fetch the details of the user (here, Aditya Pandey)
-
-	const fetchAcad = async () => {
-		const acadData = await axios.get(baseURL + "/api/acads");
-		setProgress((prev) => prev + 1);
-		// setAcads(acadData.data);
-		window.localStorage.setItem("acadData ", JSON.stringify(acadData.data));
-	}; // Fetch the academic details of the user (here, Aditya Pandey)
-
-	const fetchXP = async () => {
-		const XPData = await axios.get(baseURL + "/api/xps");
-		setProgress((prev) => prev + 1);
-		// setXP(XPData.data);
-		window.localStorage.setItem("XPData ", JSON.stringify(XPData.data));
-	}; // Fetch the experience details of the user (here, Aditya Pandey)
-
-	const fetchTech = async () => {
-		const techData = await axios.get(baseURL + "/api/techs");
-		setProgress((prev) => prev + 1);
-		// setTechs(techData.data);
-		window.localStorage.setItem("techData ", JSON.stringify(techData.data));
-	}; // Fetch the details of the tech stacks known to the user (here, Aditya Pandey)
-
-	const fetchLang = async () => {
-		const langData = await axios.get(baseURL + "/api/langs");
-		setProgress((prev) => prev + 1);
-		// setTechs(langData.data);
-		window.localStorage.setItem("langData ", JSON.stringify(langData.data));
-	}; // Fetch the details of the programming languages known to the user (here, Aditya Pandey)
-
-	const fetchDB = async () => {
-		const dbData = await axios.get(baseURL + "/api/dbs");
-		setProgress((prev) => prev + 1);
-		// setDBs(dbData.data);
-		window.localStorage.setItem("dbData ", JSON.stringify(dbData.data));
-	}; // Fetch the details of the databases known to the user (here, Aditya Pandey)
-
-	const fetchWelfare = async () => {
-		const welfareData = await axios.get(baseURL + "/api/welfares");
-		setProgress((prev) => prev + 1);
-		// setWelfares(welfareData.data);
-		window.localStorage.setItem("welfareData ", JSON.stringify(welfareData.data));
-	}; // Fetch the details of the social welfare works done by the user (here, Aditya Pandey)
-
-	const fetchCert = async () => {
-		const certData = await axios.get(baseURL + "/api/certs");
-		setProgress((prev) => prev + 1);
-		// setCerts(certData.data);
-		window.localStorage.setItem("certData ", JSON.stringify(certData.data));
-	}; // Fetch the details of the certificates recieved by the user (here, Aditya Pandey)
-
-	const fetchAch = async () => {
-		const achData = await axios.get(baseURL + "/api/achs");
-		setProgress((prev) => prev + 1);
-		// setAchs(achData.data);
-		window.localStorage.setItem("achData ", JSON.stringify(achData.data));
-	}; // Fetch the details of the achievements of the user (here, Aditya Pandey)
-
-	const fetchPersonal = async () => {
-		const personalData = await axios.get(baseURL + "/api/personals");
-		setProgress((prev) => prev + 1);
-		// setPersonals(personalData.data);
-		window.localStorage.setItem("personalData ", JSON.stringify(personalData.data));
-	}; // Fetch the details of the personal projects made by the user (here, Aditya Pandey)
-
-	const fetchProf = async () => {
-		const profData = await axios.get(baseURL + "/api/profs");
-		setProgress((prev) => prev + 1);
-		// setProfs(profData.data);
-		window.localStorage.setItem("profData ", JSON.stringify(profData.data));
-	}; // Fetch the details of the professional projects made by the user (here, Aditya Pandey)
-
-	const fetchPoster = async () => {
-		const posterData = await axios.get(baseURL + "/api/posters");
-		setProgress((prev) => prev + 1);
-		// setProfs(posterData.data);
-		window.localStorage.setItem("posterData ", JSON.stringify(posterData.data));
-	}; // Fetch the details of the posters made by the user (here, Aditya Pandey)
-
-	const fetchThumb = async () => {
-		const thumbData = await axios.get(baseURL + "/api/thumbs");
-		setProgress((prev) => prev + 1);
-		// setProfs(thumbData.data);
-		window.localStorage.setItem("thumbData ", JSON.stringify(thumbData.data));
-	}; // Fetch the details of the thumbnails made by the user (here, Aditya Pandey)
-
-	const fetchDesign = async () => {
-		const designData = await axios.get(baseURL + "/api/designs");
-		setProgress((prev) => prev + 1);
-		// setProfs(designData.data);
-		window.localStorage.setItem("designData ", JSON.stringify(designData.data));
-	}; // Fetch the details of the remaining designs made by the user (here, Aditya Pandey)
-
-	const fetchSocial = async () => {
-		const socialData = await axios.get(baseURL + "/api/socials");
-		setProgress((prev) => prev + 1);
-		// setSocials(socialData.data);
-		window.localStorage.setItem("socialData ", JSON.stringify(socialData.data));
-	}; // Fetch the details of the social media accounts of the user (here, Aditya Pandey)
+	const setContent = async () => {
+		window.localStorage.setItem("pageData ", JSON.stringify(Content.misc.pages));
+		window.localStorage.setItem("userData ", JSON.stringify(Content.misc.user));
+		window.localStorage.setItem("welcomeData ", JSON.stringify(Content.homePage.welcomeNote));
+		window.localStorage.setItem("acadData ", JSON.stringify(Content.homePage.acads));
+		window.localStorage.setItem("techData ", JSON.stringify(Content.skillsPage.teches));
+		window.localStorage.setItem("langData ", JSON.stringify(Content.skillsPage.langs));
+		window.localStorage.setItem("dbData ", JSON.stringify(Content.skillsPage.dbs));
+		window.localStorage.setItem("welfareData ", JSON.stringify(Content.achievePage.welfares));
+		window.localStorage.setItem("certData ", JSON.stringify(Content.achievePage.certs));
+		window.localStorage.setItem("XPData ", JSON.stringify(Content.achievePage.xps));
+		window.localStorage.setItem("achData ", JSON.stringify(Content.achievePage.aches));
+		window.localStorage.setItem("personalData ", JSON.stringify(Content.projPage.games));
+		window.localStorage.setItem("profData ", JSON.stringify(Content.projPage.appsWebs));
+		window.localStorage.setItem("posterData ", JSON.stringify(Content.galleryPage.posters));
+		window.localStorage.setItem("newsletterData ", JSON.stringify(Content.galleryPage.newsletters));
+		window.localStorage.setItem("thumbData ", JSON.stringify(Content.galleryPage.thumbs.reverse()));
+		window.localStorage.setItem("designData ", JSON.stringify(Content.galleryPage.designs));
+		window.localStorage.setItem("socialData ", JSON.stringify(Content.connectPage.socials));
+	};
 
 	useEffect(() => {
 		setTimeout(async () => {
-			await fetchUser();
-			await fetchAcad();
-			await fetchXP();
-			await fetchTech();
-			await fetchLang();
-			await fetchDB();
-			await fetchWelfare();
-			await fetchCert();
-			await fetchAch();
-			await fetchPersonal();
-			await fetchProf();
-			await fetchThumb();
-			await fetchDesign();
-			await fetchPoster();
-			await fetchSocial();
+			await setContent();
 			setTimeout(() => {
 				setLoading(false);
-			}, 750);
-		}, 100); // For Splash Screen, which shows the basic details about the user (here, Aditya Pandey)
+			}, 750); // For Splash Screen, which shows the basic details about the user (here, Aditya Pandey)
+		}, 1);
 	}, []);
 
 	return (
 		<>
 			<AnimatePresence>
-				{/* {(Data = JSON.parse(window.localStorage.getItem("userData ")))} */}
 				{loading ? (
-					// The following code will display a splash screen to the user, each time, user runs the website.
 					<motion.div
 						key={"splash-screen"}
 						initial={{ opacity: 0 }}
@@ -187,14 +70,6 @@ const Data = () => {
 									/>
 									<circle cx="16" cy="16" r="5" stroke="#646464" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
 								</svg>
-								<div className="loadingProgressBar">
-									<motion.div
-										initial={{ width: 0 }}
-										animate={{ width: (progress * 100) / totalProgress + "%" }}
-										transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
-										className="loadingProgress"
-									/>
-								</div>
 							</div>
 						</div>
 					</motion.div>

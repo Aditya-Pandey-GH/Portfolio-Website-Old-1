@@ -1,5 +1,5 @@
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Navbar from "./Navbar";
@@ -9,30 +9,8 @@ import Site from "./svgs/site.svg";
 const Projects = () => {
 	window.localStorage.setItem("page", 3);
 
-	const [Personals, setPersonals] = useState({});
-	const [Profs, setProfs] = useState({});
-
-	const fetchPersonal = async () => {
-		setPersonals(JSON.parse(window.localStorage.getItem("personalData ")));
-	}; // Fetch the details of the personal projects made by the user (here, Aditya Pandey)
-
-	const fetchProf = async () => {
-		setProfs(JSON.parse(window.localStorage.getItem("profData ")));
-	}; // Fetch the details of the professional projects made by the user (here, Aditya Pandey)
-
-	// const fetchPersonal = async () => {
-	// 	let personalData = await axios.get("/api/personals");
-	// 	setPersonals(personalData.data);
-	// }; // Fetch the details of the personal projects made by the user (here, Aditya Pandey)
-	// const fetchProf = async () => {
-	// 	let profData = await axios.get("/api/profs");
-	// 	setProfs(profData.data);
-	// }; // Fetch the details of the professional projects made by the user (here, Aditya Pandey)
-
-	useEffect(() => {
-		fetchPersonal();
-		fetchProf();
-	}, []);
+	const Personals = JSON.parse(window.localStorage.getItem("personalData "));
+	const Profs = JSON.parse(window.localStorage.getItem("profData "));
 
 	// PAGINATION PROF STARTS
 	const [curProfPage, setCurProfPage] = useState(1);
@@ -213,7 +191,11 @@ const Projects = () => {
 													{"<"}
 												</button>
 												<button className="paginationButton">{`Page ${curPersonalPage}/${totalPersonalPages}`}</button>
-												<button className="paginationButton active" disabled={curPersonalPage >= totalPersonalPages} onClick={() => handlePersonalPageChange(curPersonalPage + 1)}>
+												<button
+													className="paginationButton active"
+													disabled={curPersonalPage >= totalPersonalPages}
+													onClick={() => handlePersonalPageChange(curPersonalPage + 1)}
+												>
 													{">"}
 												</button>
 											</>
