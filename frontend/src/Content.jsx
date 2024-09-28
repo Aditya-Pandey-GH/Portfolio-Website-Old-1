@@ -21,7 +21,7 @@ import tekqbe from "./imgs/xp/tekqbe.png";
 import technowhiz from "./imgs/xp/technowhiz.png";
 import geekRoom from "./imgs/xp/geekRoom.png";
 
-import codeit from "./imgs/achs/codeit.png";
+import codeit from "./imgs/achs/codeIt.png";
 import ofa from "./imgs/achs/ofa.png";
 import sih from "./imgs/achs/sih.png";
 import techJitters from "./imgs/achs/techJitters.png";
