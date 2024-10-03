@@ -951,7 +951,7 @@ const Content = {
 				name: "LinkedIn",
 				logo: linkedin,
 				// logoM: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/2048px-LinkedIn_icon.svg.png",
-				link: "https://www.linkedin.com/in/adipandey160903/",
+				link: "https://www.linkedin.com/in/adibhaiya",
 				msg: "Check out the achievements of\nAditya Pandey on his LinkedIn account",
 			},
 			{
