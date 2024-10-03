@@ -128,7 +128,7 @@ const Connect = () => {
 
 						<div className="col-2">
 							<div className="homeComponent">
-								<div className="homeComponentHeading">SOCIAL MEDIA</div>
+								<div className="homeComponentHeading">FIND ME AT</div>
 								<div className="connectSocialBox">
 									{Object.values(Socials).map((elem) => {
 										return (

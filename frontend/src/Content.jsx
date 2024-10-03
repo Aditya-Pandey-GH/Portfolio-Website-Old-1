@@ -940,7 +940,7 @@ const Content = {
 				name: "GitHub",
 				logo: github,
 				// logoM: "https://i.postimg.cc/2SsYJJSN/github.png",
-				link: "https://github.com/PandeyAdi-GZ",
+				link: "https://github.com/AdiBhaiya",
 				msg: "Check out the projects made by\nAditya Pandey on his GitHub profile",
 			},
 			{
@@ -962,7 +962,7 @@ const Content = {
 				name: "YouTube",
 				logo: youtube,
 				// logoM: "https://cdn.pixabay.com/photo/2021/05/22/11/38/yt-6273367_1280.png",
-				link: "https://www.youtube.com/@GameZonedYT",
+				link: "https://www.youtube.com/@GameZonedYT?sub_confirmation=1",
 				msg: "Check out the videos edited by\nand thumbnails designed by\nAditya Pandey on his YouTube channel",
 			},
 		],
