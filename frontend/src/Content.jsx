@@ -184,35 +184,35 @@ const Content = {
 				_id: {
 					$oid: "66d0acd85dfe6b308267c90f",
 				},
-				id: "node",
-				title: "NodeJS",
-				tech: "MERN",
-				sect: "Web Development",
-				lang: "JavaScript",
-				logo: "https://cdn-icons-png.flaticon.com/512/5968/5968322.png",
-			},
-			{
-				_id: {
-					$oid: "66d0acd85dfe6b308267c910",
-				},
-				id: "express",
-				title: "ExpressJS",
-				tech: "MERN",
-				sect: "Web Development",
-				lang: "JavaScript",
-				logo: "https://adware-technologies.s3.amazonaws.com/uploads/technology/thumbnail/20/express-js.png",
-			},
-			{
-				_id: {
-					$oid: "66d0acd85dfe6b308267c911",
-				},
 				id: "react",
 				title: "ReactJS",
 				tech: "MERN",
 				sect: "Web Development",
 				lang: "JavaScript",
-				logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png",
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
 			},
+			{
+				_id: {
+					$oid: "66d0acd85dfe6b308267c911",
+				},
+				id: "node",
+				title: "NodeJS",
+				tech: "MERN",
+				sect: "Web Development",
+				lang: "JavaScript",
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+			},
+			// {
+			// 	_id: {
+			// 		$oid: "66d0acd85dfe6b308267c910",
+			// 	},
+			// 	id: "express",
+			// 	title: "ExpressJS",
+			// 	tech: "MERN",
+			// 	sect: "Web Development",
+			// 	lang: "JavaScript",
+			// 	logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+			// },
 			{
 				_id: {
 					$oid: "66d0acd85dfe6b308267c912",
@@ -222,7 +222,7 @@ const Content = {
 				tech: "",
 				sect: "Game Development",
 				lang: "C#",
-				logo: "https://seeklogo.com/images/U/unity-logo-988A22E703-seeklogo.com.png",
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg",
 			},
 			{
 				_id: {
@@ -233,7 +233,7 @@ const Content = {
 				tech: "Flutter",
 				sect: "Application Development",
 				lang: "Dart",
-				logo: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/flutter-icon.png",
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
 			},
 			// {
 			// 	_id: {
@@ -244,8 +244,90 @@ const Content = {
 			// 	tech: "",
 			// 	sect: "Android Application Development",
 			// 	lang: "Java",
-			// 	logo: "https://wikiwandv2-19431.kxcdn.com/_next/image?url=https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Android_Studio_Logo_%25282023%2529.svg/640px-Android_Studio_Logo_%25282023%2529.svg.png&w=640&q=50",
+			// 	logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg",
 			// },
+		],
+		tools: [
+			{
+				_id: {
+					$oid: "66d0af185dfe6b308267c917",
+				},
+				id: "figma",
+				title: "Figma",
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+				type: "Designing",
+				since: "2023",
+			},
+			{
+				_id: {
+					$oid: "66d0af185dfe6b308267c919",
+				},
+				id: "ppt",
+				title: "Microsoft PowerPoint",
+				logo: "https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg",
+				type: "Designing",
+				since: "2016",
+			},
+			{
+				_id: {
+					$oid: "66d0af185dfe6b308267c918",
+				},
+				id: "canva",
+				title: "Canva",
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg",
+				type: "Designing",
+				since: "2022",
+			},
+			{
+				_id: {
+					$oid: "66d0af185dfe6b308267c91c",
+				},
+				id: "vscode",
+				title: "Microsoft Visual Studio Code",
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+				type: "Programming",
+				since: "2022",
+			},
+			{
+				_id: {
+					$oid: "66d0af185dfe6b308267c91b",
+				},
+				id: "vs",
+				title: "Microsoft Visual Studio",
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-original.svg",
+				type: "Programming",
+				since: "2018",
+			},
+			{
+				_id: {
+					$oid: "66d0af185dfe6b308267c91d",
+				},
+				id: "jetbrains",
+				title: "JetBrains",
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetbrains/jetbrains-original.svg",
+				type: "Programming",
+				since: "2022",
+			},
+			// {
+			// 	_id: {
+			// 		$oid: "66d0af185dfe6b308267c91e",
+			// 	},
+			// 	id: "vb",
+			// 	title: "Microsoft Visual Basic",
+			// 	logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualbasic/visualbasic-original.svg",
+			// 	type: "Programming",
+			// 	since: "2016",
+			// },
+			{
+				_id: {
+					$oid: "66d0af185dfe6b308267c91a",
+				},
+				id: "filmora",
+				title: "Wondershare Filmora",
+				logo: "https://upload.wikimedia.org/wikipedia/commons/e/ec/Wondershare_filmora_logo.svg",
+				type: "Video Editing",
+				since: "2020",
+			},
 		],
 		langs: [
 			{
@@ -254,8 +336,8 @@ const Content = {
 				},
 				id: "js",
 				title: "JavaScript (MERN)",
-				skill: 90,
-				logo: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+				skill: 80,
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
 			},
 			{
 				_id: {
@@ -263,8 +345,8 @@ const Content = {
 				},
 				id: "java",
 				title: "Java (Core)",
-				skill: 85,
-				logo: Java,
+				skill: 75,
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
 			},
 			{
 				_id: {
@@ -272,8 +354,8 @@ const Content = {
 				},
 				id: "python",
 				title: "Python (Basics)",
-				skill: 80,
-				logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/archive/c/c3/20220730085403%21Python-logo-notext.svg/120px-Python-logo-notext.svg.png",
+				skill: 75,
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
 			},
 			{
 				_id: {
@@ -282,26 +364,26 @@ const Content = {
 				id: "csharp",
 				title: "C# (Unity) {Learning}",
 				skill: 50,
-				logo: CSharp,
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
 			},
-			{
-				_id: {
-					$oid: "66d0af185dfe6b308267c91c",
-				},
-				id: "cpp",
-				title: "C++ (Basics)",
-				skill: 40,
-				logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1822px-ISO_C%2B%2B_Logo.svg.png",
-			},
-			{
-				_id: {
-					$oid: "66d0af185dfe6b308267c91b",
-				},
-				id: "c",
-				title: "C (Basics)",
-				skill: 30,
-				logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/695px-C_Programming_Language.svg.png",
-			},
+			// {
+			// 	_id: {
+			// 		$oid: "66d0af185dfe6b308267c91c",
+			// 	},
+			// 	id: "cpp",
+			// 	title: "C++ (Basics)",
+			// 	skill: 40,
+			// 	logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+			// },
+			// {
+			// 	_id: {
+			// 		$oid: "66d0af185dfe6b308267c91b",
+			// 	},
+			// 	id: "c",
+			// 	title: "C (Basics)",
+			// 	skill: 30,
+			// 	logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+			// },
 			{
 				_id: {
 					$oid: "66d0af185dfe6b308267c91d",
@@ -309,7 +391,7 @@ const Content = {
 				id: "dart",
 				title: "Dart (Flutter) {Learning}",
 				skill: 25,
-				logo: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Dart-logo.png",
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
 			},
 		],
 		dbs: [
@@ -320,7 +402,7 @@ const Content = {
 				id: "mongo",
 				title: "MongoDB",
 				skill: 80,
-				logo: "https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png",
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
 			},
 			{
 				_id: {
@@ -329,17 +411,17 @@ const Content = {
 				id: "mysql",
 				title: "MySQL",
 				skill: 40,
-				logo: MySQL,
+				logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
 			},
-			{
-				_id: {
-					$oid: "66d0b3605dfe6b308267c921",
-				},
-				id: "oraclesql",
-				title: "OracleSQL",
-				skill: 20,
-				logo: "https://upload.wikimedia.org/wikipedia/en/thumb/6/68/Oracle_SQL_Developer_logo.svg/800px-Oracle_SQL_Developer_logo.svg.png",
-			},
+			// {
+			// 	_id: {
+			// 		$oid: "66d0b3605dfe6b308267c921",
+			// 	},
+			// 	id: "oraclesql",
+			// 	title: "OracleSQL",
+			// 	skill: 20,
+			// 	logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg",
+			// },
 		],
 	},
 	achievePage: {

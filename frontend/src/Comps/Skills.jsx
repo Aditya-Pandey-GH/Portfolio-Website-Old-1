@@ -8,11 +8,12 @@ const Skills = () => {
 	window.localStorage.setItem("page", 1);
 
 	const Techs = JSON.parse(window.localStorage.getItem("techData "));
+	const Tools = JSON.parse(window.localStorage.getItem("toolData "));
 	const Langs = JSON.parse(window.localStorage.getItem("langData "));
 	const DBs = JSON.parse(window.localStorage.getItem("dbData "));
 
 	const Color = (skill) => {
-		if (skill >= 80) {
+		if (skill >= 75) {
 			return "#279e1c";
 		} else if (skill >= 50) {
 			return "#bf7432";
@@ -32,9 +33,27 @@ const Skills = () => {
 		setCurTechPage(pageNumber);
 	};
 	// PAGINATION TECH ENDS
+	// // PAGINATION TOOL STARTS
+	const [curToolPage, setCurToolPage] = useState(1);
+	const groupedTools = Object.values(Tools).reduce((acc, tool) => {
+		if (!acc[tool.type]) {
+			acc[tool.type] = [];
+		}
+		acc[tool.type].push(tool);
+		return acc;
+	}, {});
+	const toolGroups = Object.keys(groupedTools).map((elem) => {
+		return { type: elem, tools: groupedTools[elem] };
+	});
+	const totalToolPages = toolGroups.length;
+	const currentToolsGroup = toolGroups[curToolPage - 1];
+	const handleToolPageChange = (pageNumber) => {
+		setCurToolPage(pageNumber);
+	};
+	// // PAGINATION TOOL ENDS
 	// PAGINATION LANG STARTS
 	const [curLangPage, setCurLangPage] = useState(1);
-	const LangsPerPage = 5;
+	const LangsPerPage = 3;
 	const lastLangIndex = curLangPage * LangsPerPage;
 	const firstLangIndex = lastLangIndex - LangsPerPage;
 	const currentLangs = Object.values(Langs).slice(firstLangIndex, lastLangIndex);
@@ -53,42 +72,6 @@ const Skills = () => {
 						<div className="col-1">
 							<IntroComponent />
 
-							<div className="homeComponent">
-								<div className="homeComponentHeading">TECH STACKS</div>
-								<div className="homeXP">
-									{currentTechs.map((elem) => {
-										return (
-											<div key={elem.id} className="homeXPContent">
-												<img src={elem.logo} alt="Not Found" className="homeXPimg" />
-												<div>
-													<div className="homeAcadHeading">{elem.title}</div>
-													<div className="homeAcadSubContent">{elem.sect}</div>
-													{elem.tech ? <div className="homeAcadSubContent">Tech Stack: {elem.tech}</div> : <></>}
-													{elem.lang ? <div className="homeAcadSubContent">Language: {elem.lang}</div> : <></>}
-												</div>
-											</div>
-										);
-									})}
-									<div className="pagination">
-										{totalTechPages > 1 ? (
-											<>
-												<button className="paginationButton active" disabled={curTechPage <= 1} onClick={() => handleTechPageChange(curTechPage - 1)}>
-													{"<"}
-												</button>
-												<button className="paginationButton">{`Page ${curTechPage}/${totalTechPages}`}</button>
-												<button className="paginationButton active" disabled={curTechPage >= totalTechPages} onClick={() => handleTechPageChange(curTechPage + 1)}>
-													{">"}
-												</button>
-											</>
-										) : (
-											<></>
-										)}
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div className="col-2">
 							<div className="homeComponent">
 								<div className="homeComponentHeading">LANGUAGES</div>
 								<div className="homeXP">
@@ -130,6 +113,7 @@ const Skills = () => {
 									</div>
 								</div>
 							</div>
+
 							<div className="homeComponent">
 								<div className="homeComponentHeading">DATABASES</div>
 								<div className="homeXP">
@@ -154,6 +138,76 @@ const Skills = () => {
 											</div>
 										);
 									})}
+								</div>
+							</div>
+						</div>
+
+						<div className="col-2">
+							<div className="homeComponent">
+								<div className="homeComponentHeading">TECH STACKS</div>
+								<div className="homeXP">
+									{currentTechs.map((elem) => {
+										return (
+											<div key={elem.id} className="homeXPContent">
+												<img src={elem.logo} alt="Not Found" className="homeXPimg" />
+												<div>
+													<div className="homeAcadHeading">{elem.title}</div>
+													<div className="homeAcadSubContent">{elem.sect}</div>
+													{elem.tech ? <div className="homeAcadSubContent">Tech Stack: {elem.tech}</div> : <></>}
+													{elem.lang ? <div className="homeAcadSubContent">Language: {elem.lang}</div> : <></>}
+												</div>
+											</div>
+										);
+									})}
+									<div className="pagination">
+										{totalTechPages > 1 ? (
+											<>
+												<button className="paginationButton active" disabled={curTechPage <= 1} onClick={() => handleTechPageChange(curTechPage - 1)}>
+													{"<"}
+												</button>
+												<button className="paginationButton">{`Page ${curTechPage}/${totalTechPages}`}</button>
+												<button className="paginationButton active" disabled={curTechPage >= totalTechPages} onClick={() => handleTechPageChange(curTechPage + 1)}>
+													{">"}
+												</button>
+											</>
+										) : (
+											<></>
+										)}
+									</div>
+								</div>
+							</div>
+
+							<div className="homeComponent">
+								{/* <div className="homeComponentHeading">TOOLS</div> */}
+								<div className="homeComponentHeading">{`${currentToolsGroup.type.toLocaleUpperCase()} TOOLS`}</div>
+								<div className="homeXP">
+									{currentToolsGroup &&
+										currentToolsGroup.tools.map((elem) => (
+											<div key={elem.id} className="homeXPContent">
+												<img src={elem.logo} alt="Not Found" className="homeXPimg" />
+												<div>
+													<div className="homeAcadHeading">{elem.title}</div>
+													<div className="homeAcadSubContent">{elem.sect}</div>
+													<div className="homeAcadSubContent">Using Since: {elem.since}</div>
+													<div className="homeAcadSubContent">Used For: {elem.type}</div>
+												</div>
+											</div>
+										))}
+
+									<div className="pagination">
+										{totalToolPages > 1 && (
+											<>
+												<button className="paginationButton active" disabled={curToolPage <= 1} onClick={() => handleToolPageChange(curToolPage - 1)}>
+													{"<"}
+												</button>
+												{/* <button className="paginationButton">{`Page ${curToolPage}/${totalToolPages} (${currentToolsGroup.type} Tools)`}</button> */}
+												<button className="paginationButton">{`Page ${curToolPage}/${totalToolPages}`}</button>
+												<button className="paginationButton active" disabled={curToolPage >= totalToolPages} onClick={() => handleToolPageChange(curToolPage + 1)}>
+													{">"}
+												</button>
+											</>
+										)}
+									</div>
 								</div>
 							</div>
 						</div>

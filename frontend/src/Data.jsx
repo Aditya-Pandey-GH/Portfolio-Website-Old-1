@@ -12,6 +12,7 @@ const Data = () => {
 		window.localStorage.setItem("welcomeData ", JSON.stringify(Content.homePage.welcomeNote));
 		window.localStorage.setItem("acadData ", JSON.stringify(Content.homePage.acads));
 		window.localStorage.setItem("techData ", JSON.stringify(Content.skillsPage.teches));
+		window.localStorage.setItem("toolData ", JSON.stringify(Content.skillsPage.tools));
 		window.localStorage.setItem("langData ", JSON.stringify(Content.skillsPage.langs));
 		window.localStorage.setItem("dbData ", JSON.stringify(Content.skillsPage.dbs));
 		window.localStorage.setItem("welfareData ", JSON.stringify(Content.achievePage.welfares));
