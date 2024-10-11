@@ -606,7 +606,7 @@ const Content = {
 				desc: "Flappy Bird is one of the very well popular games. But it was abandoned by its developer. This project is a clone of the original Flappy Bird game, but a bit more difficult.",
 				lang: ["Unity", "C#"],
 				logo: gameFlappy,
-				link: "",
+				link: "https://github.com/AdiBhaiya/Flappy-Bird-Clone/releases/tag/v2.0",
 			},
 			{
 				_id: {

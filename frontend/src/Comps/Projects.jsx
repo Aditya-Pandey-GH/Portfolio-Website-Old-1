@@ -53,45 +53,20 @@ const Projects = () => {
 												<img src={elem.logo} alt="Not Found" className="homeXPimg" />
 												<div>
 													<div className="homeAcadHeading">{elem.name}</div>
-													<div
-														className="homeAcadSubContent"
-														style={{
-															marginTop: "1rem",
-														}}
-													>
+													<div className="homeAcadSubContent" style={{ marginTop: "1rem" }}>
 														{elem.desc}
 													</div>
-													<div
-														className="homeAcadSubContent"
-														style={{
-															marginTop: "1rem",
-														}}
-													>
+													<div className="homeAcadSubContent" style={{ marginTop: "1rem" }}>
 														Languages:{" "}
-														<ul
-															style={{
-																marginLeft: "1.5rem",
-															}}
-														>
+														<ul style={{ marginLeft: "1.5rem" }}>
 															{Object.values(elem.lang).map((lang) => {
 																return <li key={lang}>{lang}</li>;
 															})}
 														</ul>
 													</div>
 													{elem.link !== "" ? (
-														<div
-															className="homeAcadSubContent"
-															style={{
-																marginTop: "1rem",
-															}}
-														>
-															<img
-																src={Site}
-																alt=""
-																style={{
-																	width: "1.5rem",
-																}}
-															/>
+														<div className="homeAcadSubContent" style={{ display: "flex", marginTop: "1rem" }}>
+															<img src={Site} alt="" style={{ marginRight: "0.3rem", width: "1.5rem" }} />
 															<Link to={elem.link} target="_blank" className="websites">
 																{" "}
 																{elem.link}
@@ -133,45 +108,20 @@ const Projects = () => {
 												<img src={elem.logo} alt="Not Found" className="homeXPimg" />
 												<div>
 													<div className="homeAcadHeading">{elem.name}</div>
-													<div
-														className="homeAcadSubContent"
-														style={{
-															marginTop: "1rem",
-														}}
-													>
+													<div className="homeAcadSubContent" style={{ marginTop: "1rem" }}>
 														{elem.desc}
 													</div>
-													<div
-														className="homeAcadSubContent"
-														style={{
-															marginTop: "1rem",
-														}}
-													>
+													<div className="homeAcadSubContent" style={{ marginTop: "1rem" }}>
 														Languages:{" "}
-														<ul
-															style={{
-																marginLeft: "1.5rem",
-															}}
-														>
+														<ul style={{ marginLeft: "1.5rem" }}>
 															{Object.values(elem.lang).map((lang) => {
 																return <li key={lang}>{lang}</li>;
 															})}
 														</ul>
 													</div>
 													{elem.link !== "" ? (
-														<div
-															className="homeAcadSubContent"
-															style={{
-																marginTop: "1rem",
-															}}
-														>
-															<img
-																src={Site}
-																alt=""
-																style={{
-																	width: "1.5rem",
-																}}
-															/>
+														<div className="homeAcadSubContent" style={{ display: "flex", marginTop: "1rem" }}>
+															<img src={Site} alt="" style={{ marginRight: "0.3rem", width: "1.5rem" }} />
 															<Link to={elem.link} target="_blank" className="websites">
 																{" "}
 																{elem.link}
