@@ -7,10 +7,6 @@ import pageConnect from "./imgs/pages/connect.png";
 
 import PFP from "./imgs/pfp.jpg";
 
-import Java from "./imgs/langs+db/java.png";
-import CSharp from "./imgs/langs+db/CSharp.png";
-import MySQL from "./imgs/langs+db/mysql.png";
-
 import certMERN from "./imgs/certs/mernStack.jpg";
 import certOFA from "./imgs/certs/oneForAll.png";
 import certCisco from "./imgs/certs/cyberSec.png";
@@ -63,6 +59,7 @@ import thumb9 from "./imgs/thumbs/grandTheftAutoViceCity2TightendEp2.png";
 import thumb10 from "./imgs/thumbs/grandTheftAutoViceCity3TightendEp3.png";
 import thumb11 from "./imgs/thumbs/grandTheftAutoViceCity4TightendEp6.png";
 import thumb12 from "./imgs/thumbs/aDifficultGameAboutClimbing1Ep1.png";
+import thumb13 from "./imgs/thumbs/aDifficultGameAboutClimbing2Ep2.png";
 
 import OFACert from "./imgs/designs/OFACert.png";
 import ecoArtCert from "./imgs/designs/ecoArtCert.png";
@@ -936,6 +933,16 @@ const Content = {
 				desc: "This thumbnail is made for the gameplay of the first episode of a rage game called 'A Difficult Game About Climbing'. As the name suggests, it is a diffcult game about climbing. In this video, I have tried to climb as high as possible and overcome as many difficulties as I can.",
 				logo: thumb12,
 				link: "https://www.youtube.com/watch?v=TnBjIPoa4R0",
+			},
+			{
+				_id: {
+					$oid: "66f0199b1fee15c609f635ef",
+				},
+				id: "aDifficultGameAboutClimbing2Ep2",
+				title: "I MADE IT TO THE TOP !!! 😎🥳",
+				desc: "",
+				logo: thumb13,
+				link: "https://www.youtube.com/watch?v=hVHoZ2JJUUA",
 			},
 		],
 		designs: [
