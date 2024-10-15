@@ -23,7 +23,7 @@ const Data = () => {
 		window.localStorage.setItem("profData ", JSON.stringify(Content.projPage.appsWebs));
 		window.localStorage.setItem("posterData ", JSON.stringify(Content.galleryPage.posters));
 		window.localStorage.setItem("newsletterData ", JSON.stringify(Content.galleryPage.newsletters));
-		window.localStorage.setItem("thumbData ", JSON.stringify(Content.galleryPage.thumbs.reverse()));
+		window.localStorage.setItem("thumbData ", JSON.stringify(Content.galleryPage.thumbs));
 		window.localStorage.setItem("designData ", JSON.stringify(Content.galleryPage.designs));
 		window.localStorage.setItem("socialData ", JSON.stringify(Content.connectPage.socials));
 	};

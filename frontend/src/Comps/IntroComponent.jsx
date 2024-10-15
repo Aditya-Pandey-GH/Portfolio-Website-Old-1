@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 
-import Download from "./svgs/download.svg";
+// import Download from "./svgs/download.svg";
+import Download from "../imgs/misc/download.svg";
 
 const IntroComponent = () => {
 	const [Data, setData] = useState("");

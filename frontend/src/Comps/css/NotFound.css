@@ -2,11 +2,10 @@
 	width: 40%;
 	position: fixed;
 	margin: auto;
-	margin-left: 7.5rem;
 	text-align: center;
 	align-items: center;
 	justify-content: center;
-	top: 45%;
+	top: 45vh;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }

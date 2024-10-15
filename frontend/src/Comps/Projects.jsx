@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 
 import Navbar from "./Navbar";
 import IntroComponent from "./IntroComponent";
-import Site from "./svgs/site.svg";
+
+// import Site from "./svgs/site.svg";
+import Site from "../imgs/misc/site.svg";
 
 const Projects = () => {
 	window.localStorage.setItem("page", 3);
